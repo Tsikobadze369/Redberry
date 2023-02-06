@@ -1,7 +1,8 @@
 .mainPage {
   width: 1920px;
+
   height: 1080px;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   background-image: url("./images/shutterstock_2189773743\ 1.png");
   background-size: cover;
 }
@@ -23,9 +24,7 @@
 .button {
   width: 464px;
   height: 60px;
-  margin-left: calc(50% - 650px / 2);
-  margin-top: 470px;
-  padding: 18px, 60px, 18px, 60px;
+  margin: 513px 728px 507px 728px;
   border-radius: 8px;
   background: #1a1a1a;
   color: white;
