@@ -1,0 +1,38 @@
+.mainPage {
+  width: 1920px;
+  height: 1080px;
+  margin: 0 auto;
+  background-image: url("./images/shutterstock_2189773743\ 1.png");
+  background-size: cover;
+}
+.mainPage img {
+  margin-top: 25px;
+  margin-left: 70px;
+}
+.borderBottom {
+  border-bottom: 1px solid #1a1a1a;
+  width: 1780px;
+  margin-left: 70px;
+  margin-top: 15px;
+}
+.mainPage .LOGO-40 {
+  margin-left: 1076px;
+  margin-top: 430px;
+  position: relative;
+}
+.button {
+  width: 464px;
+  height: 60px;
+  margin-left: calc(50% - 650px / 2);
+  margin-top: 470px;
+  padding: 18px, 60px, 18px, 60px;
+  border-radius: 8px;
+  background: #1a1a1a;
+  color: white;
+  position: absolute;
+  cursor: pointer;
+  font-family: "Helvetica Neue";
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+}
