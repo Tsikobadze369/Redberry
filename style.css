@@ -2,32 +2,38 @@
   font-family: "HelveticaNeue";
   src: url("../font/HelveticaNeue.ttc");
 }
+*body {
+  max-width: 1920px;
+  font-family: "HelveticaNeue";
+}
 
+/* First page stylize */
 .mainPage {
-  width: 1920px;
-  height: 1080px;
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
   background-image: url("./images/shutterstock_2189773743\ 1.png");
-  /* display: none; */
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: relative;
 }
+
 .mainPage img {
-  margin-top: 25px;
-  margin-left: 70px;
-}
-.borderBottom {
-  border-bottom: 1px solid #1a1a1a;
-  width: 1780px;
-  margin-left: 70px;
-  margin-top: 15px;
+  width: 236px;
+  padding: 25px 0 25px 70px;
 }
 .mainPage .LOGO-40 {
-  margin-left: 1076px;
-  margin-top: 430px;
+  width: 18%;
+  margin-top: 200px;
+  margin-left: 56%;
   position: relative;
 }
 .resumeButton {
-  width: 464px;
-  height: 60px;
-  margin: 513px 728px 507px 728px;
+  width: 25%;
+  height: 53px;
+  margin-top: 250px;
+  left: 40%;
   border-radius: 8px;
   background: #1a1a1a;
   color: white;
@@ -37,4 +43,29 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
+}
+.borderBottom {
+  border-bottom: 1px solid #1a1a1a;
+  width: 90%;
+  margin: 0 auto;
+}
+/* First page stylize */
+
+/* Second page section stylize  */
+.personalInfo {
+  width: 100%;
+  height: 100vh;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  display: none;
+}
+.personal_info_button {
+  width: 40px;
+  height: 40px;
+  border-style: none;
+  border-radius: 50%;
+  background-color: white;
+  margin-top: 45px;
+  margin-left: 48px;
+  cursor: pointer;
 }
