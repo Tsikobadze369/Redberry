@@ -21,10 +21,67 @@
 
     <!-- Second page section,about personal information,starts -->
     <section class="personalInfo">
-      <button class="personal_info_button">
-        <img src="./images/Vector.png" alt="arrow" />
-      </button>
+      <div class="header_parent">
+        <button class="personal_info_button">
+          <img src="./images/Vector.png" alt="arrow" />
+        </button>
+        <section class="header">
+          <h1 class="title">ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ</h1>
+          <p class="pages">1/3</p>
+        </section>
+      </div>
+
+      <!-- validation form -->
+      <form class="form">
+        <div class="inputbox">
+          <div class="name_and_last_name">
+            <label for="name" class="labelName">სახელი</label>
+            <input placeholder="ანზორ" id="name" type="text" />
+            <p>მინიმუმ 2 ასო, ქართული ასოები</p>
+          </div>
+          <div class="name_and_last_name">
+            <label for="last_name" class="lastName">გვარი</label>
+            <input placeholder="მუმლაძე" id="last_name" type="text" />
+            <p>მინიმუმ 2 ასო, ქართული ასოები</p>
+          </div>
+        </div>
+        <div class="upload">
+          <label for="photoUpload" class="upload_text"
+            >პირადი ფოტოს ატვირთვა</label
+          >
+          <input id="photoUpload" type="file" hidden />
+          <button class="uploadButton">ატვირთვა</button>
+        </div>
+        <div class="textareaBox">
+          <label for="aboutMe">ჩემ შესახებ (არასავალდებულო)</label>
+          <textarea
+            rows="10"
+            cols="80"
+            id="aboutMe"
+            style="resize: none"
+            placeholder="ზოგადი ინფო შენ შესახებ"
+          ></textarea>
+        </div>
+        <div class="emailBox">
+          <label for="email">ელ.ფოსტა</label>
+          <input id="email" placeholder="anzorr666@redberry.ge" type="email" />
+          <p>უნდა მთავრდებოდეს @redberry.ge-ით</p>
+        </div>
+        <div class="mobileNumBox">
+          <label for="about">მობილურის ნომერი</label>
+          <input id="about" placeholder="+995 551 12 34 56" type="tel" />
+          <p>უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</p>
+        </div>
+        <div class="nextPage">
+          <button class="nextPageButton">ᲨᲔᲛᲓᲔᲒᲘ</button>
+        </div>
+      </form>
+      <!-- validation form -->
     </section>
+    <!-- Second page section,about personal information,ends -->
+
+    <!-- experience page section,start -->
+    <section class="experienceSection"></section>
     <script src="./main.js"></script>
   </body>
 </html>
