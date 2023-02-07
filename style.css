@@ -1,7 +1,13 @@
+@font-face {
+  font-family: "HelveticaNeue";
+  src: url("../font/HelveticaNeue.ttc");
+}
+
 .mainPage {
   width: 1920px;
   height: 1080px;
   background-image: url("./images/shutterstock_2189773743\ 1.png");
+  /* display: none; */
 }
 .mainPage img {
   margin-top: 25px;
@@ -18,7 +24,7 @@
   margin-top: 430px;
   position: relative;
 }
-.button {
+.resumeButton {
   width: 464px;
   height: 60px;
   margin: 513px 728px 507px 728px;
@@ -27,7 +33,7 @@
   color: white;
   position: absolute;
   cursor: pointer;
-  font-family: "Helvetica Neue";
+  font-family: "HelveticaNeue";
   font-weight: 500;
   font-size: 20px;
   line-height: 24px;
