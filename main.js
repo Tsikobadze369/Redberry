@@ -21,13 +21,18 @@ let nameInput = document.querySelector("#name");
 let lastNameInput = document.querySelector("#last_name");
 let emailInput = document.querySelector("#email");
 let mobileNumberInput = document.querySelector("#mobileNumber");
-
+let resumeFullname = document.querySelector(".resumeFullname");
+let resumeEmailBox = document.querySelector(".resumeEmailBox");
+let emailSvg = document.querySelector(".emailSvg");
+let resumeMobileBox = document.querySelector(".resumeMobileBox");
+let mobileSvg = document.querySelector(".mobileSvg");
 // input validations in personalInfo page
 
 function georgianLangValidation(input) {
-  let langRegex = /^[ა-ჰ]+$/;
-  return langRegex.test(input);
+  let regExp = /^[ა-ჰ]+$/;
+  return regExp.test(input);
 }
+
 function emailValidation(email) {
   let emailRegex = /^[a-zA-Z0-9._%+-]+@redberry\.ge$/;
   return emailRegex.test(email);
@@ -36,12 +41,77 @@ function georgianNumberFormat(mobile) {
   let mobileRegex = /^(\+995)\d{9}$/;
   return mobileRegex.test(mobile);
 }
-
-function imageUploadValidation(img) {
-  if (img.src === "") {
+function dateVal(input) {
+  if (input.value === "") {
     return false;
   } else return true;
 }
+// function minTwoSymbol(input) {
+//   if (input.value.length >= 2) {
+//     return true;
+//   } else {
+//     return false;
+//   }
+// }
+
+// function imageUploadValidation(img) {
+//   if (img.src === "") {
+//     return false;
+//   } else return true;
+// }
+
+function nameAndSurname(firstString, SecondString) {
+  resumeFullname.innerHTML = firstString + " " + SecondString;
+}
+
+nameInput.addEventListener("keyup", function () {
+  nameAndSurname(nameInput.value, lastNameInput.value);
+  resumeFullname.innerHTML = nameInput.value;
+  if (georgianLangValidation(nameInput.value) && nameInput.value.length >= 2) {
+    nameInput.classList.add("is_valid_green");
+    nameInput.classList.remove("not_valid_red");
+  } else if (
+    !georgianLangValidation(nameInput.value) &&
+    nameInput.value.length > 0
+  ) {
+    nameInput.classList.add("not_valid_red");
+    nameInput.classList.remove("is_valid_green");
+  } else if (nameInput.value.trim() === "") {
+    nameInput.classList.remove("is_valid_green");
+    nameInput.classList.remove("not_valid_red");
+  }
+  console.log(nameInput);
+});
+lastNameInput.addEventListener("keyup", function () {
+  nameAndSurname(nameInput.value, lastNameInput.value);
+  if (
+    georgianLangValidation(lastNameInput.value) &&
+    lastNameInput.value.length >= 2
+  ) {
+    lastNameInput.classList.add("is_valid_green");
+    lastNameInput.classList.remove("not_valid_red");
+  } else if (
+    !georgianLangValidation(lastNameInput.value) &&
+    lastNameInput.value.length > 0
+  ) {
+    lastNameInput.classList.add("not_valid_red");
+    lastNameInput.classList.remove("is_valid_green");
+  } else if (lastNameInput.value.trim() === "") {
+    lastNameInput.classList.remove("is_valid_green");
+    lastNameInput.classList.remove("not_valid_red");
+  }
+});
+
+emailInput.addEventListener("keyup", function () {
+  resumeEmailBox.textContent = emailInput.value;
+  emailSvg.style.display = "block";
+  console.log(emailInput);
+});
+mobileNumberInput.addEventListener("keyup", function () {
+  resumeMobileBox.textContent = mobileNumberInput.value;
+  mobileSvg.style.display = "block";
+  console.log(mobileNumberInput);
+});
 // input validations in personalInfo page
 
 photoUpload.addEventListener("change", function () {

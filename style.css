@@ -138,6 +138,13 @@
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
 }
+/* #name::before {
+  background-image: url(./images/isValid.png);
+  background-repeat: no-repeat;
+  scroll-behavior: 7px 7px;
+  padding-left: 30px;
+  display: none;
+} */
 #name:focus {
   outline: 0;
 }
@@ -673,4 +680,14 @@
   line-height: 20px;
   letter-spacing: 0.08em;
   cursor: pointer;
+}
+/* educationSection stylize */
+.is_valid_green {
+  border: 3px solid #98e37e;
+}
+.not_valid_red {
+  border: 3px solid #ef5050;
+}
+.container {
+  display: flex;
 }
