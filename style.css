@@ -520,3 +520,157 @@
   letter-spacing: 0.08em;
   cursor: pointer;
 }
+/* experienceSection stylize */
+/* educationSection stylize */
+.educationSection {
+  width: 60%;
+  background-color: #f9f9f9;
+  padding-bottom: 65px;
+  display: none;
+}
+.edu_header_parent {
+  display: flex;
+}
+.education_button {
+  width: 40px;
+  height: 40px;
+  border-style: none;
+  border-radius: 50%;
+  background-color: white;
+  margin-top: 45px;
+  margin-left: 48px;
+  cursor: pointer;
+}
+.eduHeader {
+  width: 70%;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 0 auto;
+  border-bottom: 1px solid #1a1a1a;
+  margin-top: 47px;
+}
+.educationBox {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  margin-left: 8%;
+  margin-top: 20px;
+}
+.educationBox label {
+  font-size: 16px;
+  line-height: 21px;
+  font-family: "HelveticaNeue";
+  font-weight: 500;
+  margin-top: 33px;
+}
+#education {
+  width: 100%;
+  height: 48px;
+  padding: 14px 16px;
+  border-radius: 4px;
+  border: 1px solid #bcbcbc;
+}
+#education:focus {
+  outline: 0;
+}
+#education::placeholder {
+  font-size: 16px;
+  font-family: "HelveticaNeue";
+  color: rgba(0, 0, 0, 0.6);
+}
+.educationBox p {
+  font-size: 14px;
+  font-family: "HelveticaNeue";
+  line-height: 21px;
+  color: rgba(0, 0, 0, 0.6);
+}
+.inputboxEduPage {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 8%;
+  margin-top: 33px;
+}
+.degreeForm {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  padding: 2px;
+  margin-top: 5.3%;
+}
+.degreeForm label {
+  font-size: 16px;
+  line-height: 21px;
+  font-weight: 500;
+  font-family: "HelveticaNeue";
+}
+#degrees {
+  width: 100%;
+  height: 45px;
+  padding: 14px 16px;
+  border-radius: 4px;
+  border: 1px solid #bcbcbc;
+}
+#degrees:focus {
+  outline: 0;
+}
+.eduEnd {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  padding: 2px;
+}
+#eduEndDate {
+  width: 95%;
+  padding: 14px 16px;
+  height: 45px;
+  border-radius: 4px;
+  border: 1px solid #bcbcbc;
+  font-family: "HelveticaNeue";
+  color: rgba(0, 0, 0, 0.6);
+}
+.eduEnd label {
+  font-size: 16px;
+  line-height: 21px;
+  font-family: "HelveticaNeue";
+  font-weight: 500;
+  margin-top: 33px;
+}
+
+#eduEndDate:focus {
+  outline: 0;
+}
+.end_btn {
+  border: none;
+  background: #6b40e3;
+  border-radius: 4px;
+  width: 151px;
+  height: 48px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}
+.back_to_exp_pg_btn {
+  border: none;
+  background: #6b40e3;
+  border-radius: 4px;
+  width: 113px;
+  height: 48px;
+  color: #fff;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+}

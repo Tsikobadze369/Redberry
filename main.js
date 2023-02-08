@@ -2,11 +2,15 @@ const resumeButton = document.querySelector(".resumeButton");
 const mainPage = document.querySelector(".mainPage");
 const personalInfo = document.querySelector(".personalInfo");
 const backButton = document.querySelector(".personal_info_button");
+const nextBtn = document.querySelector(".next_btn");
+const backToTheExpPageBtn = document.querySelector(".back_to_exp_pg_btn");
 const backButtonSecPage = document.querySelector(
   ".personal_info_button_secPage"
 );
 const nextPageButton = document.querySelector(".nextPageButton");
 const experienceSection = document.querySelector(".experienceSection");
+const educationSection = document.querySelector(".educationSection");
+const educationButton = document.querySelector(".education_button");
 const pages = document.querySelector(".pages");
 const photoUpload = document.querySelector("#photoUpload");
 const uploadButton = document.querySelector(".uploadButton");
@@ -21,17 +25,18 @@ let mobileNumberInput = document.querySelector("#mobileNumber");
 // input validations in personalInfo page
 
 function georgianLangValidation(input) {
-  let langRegax = /^[ა-ჰ]+$/;
-  return langRegax.test(input);
+  let langRegex = /^[ა-ჰ]+$/;
+  return langRegex.test(input);
 }
 function emailValidation(email) {
-  let emailRegax = /^[a-zA-Z0-9._%+-]+@redberry\.ge$/;
-  return emailRegax.test(email);
+  let emailRegex = /^[a-zA-Z0-9._%+-]+@redberry\.ge$/;
+  return emailRegex.test(email);
 }
 function georgianNumberFormat(mobile) {
-  let mobileRegax = /^(\+995)\d{9}$/;
-  return mobileRegax.test(mobile);
+  let mobileRegex = /^(\+995)\d{9}$/;
+  return mobileRegex.test(mobile);
 }
+
 function imageUploadValidation(img) {
   if (img.src === "") {
     return false;
@@ -63,9 +68,7 @@ backButton.addEventListener("click", function () {
 });
 backButtonSecPage.addEventListener("click", function () {
   experienceSection.style.display = "none";
-  personalInfo.style.display = "block";
-  title.textContent = "პირადი ინფო";
-  pages.textContent = "1/3";
+  mainPage.style.display = "block";
 });
 
 nextPageButton.addEventListener("click", function (e) {
@@ -73,7 +76,7 @@ nextPageButton.addEventListener("click", function (e) {
   personalInfo.style.display = "none";
   pages.textContent = "2/3";
   experienceSection.style.display = "block";
-  title.textContent = "გამოცდილება";
+  title.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
 });
 backBtn.addEventListener("click", function (e) {
   e.preventDefault();
@@ -81,4 +84,22 @@ backBtn.addEventListener("click", function (e) {
   personalInfo.style.display = "block";
   title.textContent = "პირადი ინფო";
   pages.textContent = "1/3";
+});
+nextBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  experienceSection.style.display = "none";
+  educationSection.style.display = "block";
+  title.textContent = "ᲒᲐᲜᲐᲗᲚᲔᲑᲐ";
+  pages.textContent = "3/3";
+});
+educationButton.addEventListener("click", function () {
+  educationSection.style.display = "none";
+  mainPage.style.display = "block";
+});
+backToTheExpPageBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  educationSection.style.display = "none";
+  experienceSection.style.display = "block";
+  title.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
+  pages.textContent = "2/3";
 });

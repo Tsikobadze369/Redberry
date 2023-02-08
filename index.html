@@ -91,6 +91,7 @@
           <p class="pages">2/3</p>
         </section>
       </div>
+      <!-- validation form -->
       <form class="form">
         <div class="positionBox">
           <label for="position">თანამდებობა</label>
@@ -136,6 +137,64 @@
         <div class="next_and_back_btn_box">
           <button class="back_btn">ᲣᲙᲐᲜ</button>
           <button class="next_btn">ᲨᲔᲛᲓᲔᲒᲘ</button>
+        </div>
+      </form>
+      <!-- validation form -->
+    </section>
+    <!-- experience page section,ends -->
+    <!-- education page section,starts -->
+    <section class="educationSection">
+      <div class="edu_header_parent">
+        <button class="education_button">
+          <img src="./images/Vector.png" alt="arrow" />
+        </button>
+        <section class="eduHeader">
+          <h1 class="expTitle">ᲒᲐᲜᲐᲗᲚᲔᲑᲐ</h1>
+          <p class="pages">3/3</p>
+        </section>
+      </div>
+      <!-- validation form -->
+      <form class="form">
+        <div class="educationBox">
+          <label for="education">სასწავლებელი</label>
+          <input id="education" placeholder="სასწავლებელი" type="text" />
+          <p>მინიმუმ 2 სიმბოლო</p>
+        </div>
+        <div class="inputboxEduPage">
+          <div class="degreeForm">
+            <label>ხარისხი</label>
+            <select id="degrees" name="degree" form="degree">
+              <option aria-placeholder="chooseDegree">აირჩიეთ ხარისხი</option>
+              <option value="average">საშუალო სკოლის დიპლომი</option>
+              <option value="bachelor">ბაკალავრი</option>
+              <option value="master">მაგისტრი</option>
+              <option value="doctor ">დოქტორი</option>
+              <option value="ასოცირებული ხარისხი">ასოცირებული ხარისხი</option>
+              <option value="student">სტუდენტი</option>
+              <option value="college">კოლეჯი (ხარისხის გარეშე)</option>
+              <option value="etc">სხვა</option>
+            </select>
+          </div>
+          <div class="eduEnd">
+            <label for="eduEndDate">დამთავრების რიცხვი</label>
+            <input placeholder="mm / dd / yyyy" id="eduEndDate" type="date" />
+          </div>
+        </div>
+        <div class="descriptionBox">
+          <label for="description">აღწერა</label>
+          <textarea
+            rows="10"
+            cols="80"
+            id="description"
+            style="resize: none"
+            placeholder="განათლების აღწერა"
+          ></textarea>
+        </div>
+        <div class="border_bottom"></div>
+        <button class="expAddBtn">სხვა სასწავლებლის დამატება</button>
+        <div class="next_and_back_btn_box">
+          <button class="back_to_exp_pg_btn">ᲣᲙᲐᲜ</button>
+          <button class="end_btn">ᲓᲐᲡᲠᲣᲚᲔᲑᲐ</button>
         </div>
       </form>
     </section>
