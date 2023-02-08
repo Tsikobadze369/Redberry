@@ -68,8 +68,8 @@
           <p>უნდა მთავრდებოდეს @redberry.ge-ით</p>
         </div>
         <div class="mobileNumBox">
-          <label for="about">მობილურის ნომერი</label>
-          <input id="about" placeholder="+995 551 12 34 56" type="tel" />
+          <label for="mobileNumber">მობილურის ნომერი</label>
+          <input id="mobileNumber" placeholder="+995 551 12 34 56" type="tel" />
           <p>უნდა აკმაყოფილებდეს ქართული მობილურის ნომრის ფორმატს</p>
         </div>
         <div class="nextPage">
@@ -80,8 +80,65 @@
     </section>
     <!-- Second page section,about personal information,ends -->
 
-    <!-- experience page section,start -->
-    <section class="experienceSection"></section>
+    <!-- experience page section,starts -->
+    <section class="experienceSection">
+      <div class="header_parent">
+        <button class="personal_info_button_secPage">
+          <img src="./images/Vector.png" alt="arrow" />
+        </button>
+        <section class="expHeader">
+          <h1 class="expTitle">გამოცდილება</h1>
+          <p class="pages">2/3</p>
+        </section>
+      </div>
+      <form class="form">
+        <div class="positionBox">
+          <label for="position">თანამდებობა</label>
+          <input
+            id="position"
+            placeholder="დეველოპერი, დიზაინერი, ა.შ."
+            type="text"
+          />
+          <p>მინიმუმ 2 სიმბოლო</p>
+        </div>
+        <div class="employerBox">
+          <label for="employer">დამსაქმებელი</label>
+          <input id="employer" placeholder="დამსაქმებელი" type="text" />
+          <p>მინიმუმ 2 სიმბოლო</p>
+        </div>
+        <div class="inputboxExpPage">
+          <div class="job_start_and_end">
+            <label for="startDate">დაწყების რიცხვი</label>
+            <input
+              value=""
+              placeholder="mm / dd / yyyy"
+              id="startDate"
+              type="date"
+            />
+          </div>
+          <div class="job_start_and_end">
+            <label for="endDate">დამთავრების რიცხვი</label>
+            <input placeholder="mm / dd / yyyy" id="endDate" type="date" />
+          </div>
+        </div>
+        <div class="descriptionBox">
+          <label for="description">აღწერა</label>
+          <textarea
+            rows="10"
+            cols="80"
+            id="description"
+            style="resize: none"
+            placeholder="როლი თანამდებობაზე და ზოგადი აღწერა"
+          ></textarea>
+        </div>
+        <div class="border_bottom"></div>
+        <button class="expAddBtn">მეტი გამოცდილების დამატება</button>
+        <div class="next_and_back_btn_box">
+          <button class="back_btn">ᲣᲙᲐᲜ</button>
+          <button class="next_btn">ᲨᲔᲛᲓᲔᲒᲘ</button>
+        </div>
+      </form>
+    </section>
     <script src="./main.js"></script>
   </body>
 </html>
