@@ -130,7 +130,7 @@ uploadButton.addEventListener("click", function (e) {
 });
 resumeButton.addEventListener("click", function () {
   mainPage.style.display = "none";
-  personalInfo.style.display = "block";
+  personalInfo.style.display = "flex";
 });
 backButton.addEventListener("click", function () {
   personalInfo.style.display = "none";
@@ -158,7 +158,7 @@ backBtn.addEventListener("click", function (e) {
 nextBtn.addEventListener("click", function (e) {
   e.preventDefault();
   experienceSection.style.display = "none";
-  educationSection.style.display = "block";
+  educationSection.style.display = "flex";
   title.textContent = "ᲒᲐᲜᲐᲗᲚᲔᲑᲐ";
   pages.textContent = "3/3";
 });

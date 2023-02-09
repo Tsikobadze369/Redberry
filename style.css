@@ -55,7 +55,7 @@
 .personalInfo {
   width: 60%;
   background-color: #f9f9f9;
-  padding-bottom: 65px;
+  padding-bottom: 6px;
   display: none;
 }
 .personal_info_button {
@@ -63,15 +63,16 @@
   height: 40px;
   border-style: none;
   border-radius: 50%;
-  background-color: white;
+  background-color: #fff;
   margin-top: 45px;
-  margin-left: 48px;
+  margin-left: 3%;
   cursor: pointer;
 }
-.header_parent {
-  display: flex;
-}
 .header {
+  width: 90%;
+  background-color: #f9f9f9;
+}
+.persInfoBox {
   width: 70%;
   display: flex;
   justify-content: center;
@@ -94,17 +95,17 @@
   text-align: Right;
 }
 .form {
-  width: 72.8%;
+  width: 73%;
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  margin-top: 77px;
+  margin-top: 15%;
 }
 .inputbox {
-  width: 100%;
+  width: 99.5%;
   display: flex;
   justify-content: space-between;
-  margin-left: 8%;
+  margin-left: 2.5%;
 }
 .name_and_last_name {
   width: 50%;
@@ -115,19 +116,19 @@
   padding: 2px;
 }
 .name_and_last_name p {
-  font-size: 14px;
+  font-size: 13px;
   font-family: "HelveticaNeue";
   font-style: Light;
   line-height: 21px;
-  margin-top: 8px;
   color: rgba(0, 0, 0, 0.6);
 }
 .labelName,
 .lastName {
   font-family: "HelveticaNeue";
-  font-size: 16px;
+  font-size: 15px;
   line-height: 21px;
   font-weight: 500;
+  margin-bottom: 2%;
 }
 #name {
   width: 95%;
@@ -138,13 +139,6 @@
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
 }
-/* #name::before {
-  background-image: url(./images/isValid.png);
-  background-repeat: no-repeat;
-  scroll-behavior: 7px 7px;
-  padding-left: 30px;
-  display: none;
-} */
 #name:focus {
   outline: 0;
 }
@@ -161,11 +155,12 @@
   outline: 0;
 }
 .upload {
-  width: 82.5%;
-  margin: 0 auto;
-  margin-top: 54px;
+  width: 99.5%;
+  margin-top: 20%;
+  margin-left: 2.5%;
 }
 .upload_text {
+  width: 100%;
   font-family: "HelveticaNeue";
   font-size: 18px;
   font-weight: 500;
@@ -175,7 +170,7 @@
   width: 107px;
   height: 27px;
   border-radius: 4px;
-  margin-left: 19px;
+  margin-left: 3%;
   border-style: none;
   background-color: #0e80bf;
   color: #ffffff;
@@ -186,21 +181,27 @@
   cursor: pointer;
 }
 .textareaBox {
-  width: 100%;
-  margin: 84px 0 0 50.5px;
   border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  border-radius: 4px;
+  margin-top: 20%;
+  margin-left: 3%;
 }
 .textareaBox label {
   font-size: 16px;
   line-height: 21px;
   font-weight: 500;
   font-family: "HelveticaNeue";
+  margin-bottom: 2%;
 }
 #aboutMe {
   padding: 14px 16px;
 }
 #aboutMe::placeholder {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 21px;
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
@@ -209,20 +210,15 @@
   outline: 0;
 }
 .emailBox {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  margin-top: 60px;
-  margin-left: 8%;
+  width: 99.5%;
+  margin-top: 20%;
+  margin-left: 2.5%;
 }
 .emailBox label {
   font-size: 16px;
   line-height: 21px;
   font-family: "HelveticaNeue";
   font-weight: 500;
-  margin-top: 33px;
 }
 #email {
   width: 100%;
@@ -230,36 +226,32 @@
   padding: 14px 16px;
   border-radius: 4px;
   border: 1px solid #bcbcbc;
+  margin-top: 2%;
 }
 #email:focus {
   outline: 0;
 }
 #email::placeholder {
-  font-size: 16px;
+  font-size: 15px;
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
 }
 .emailBox p {
-  font-size: 14px;
+  font-size: 13px;
   font-family: "HelveticaNeue";
   line-height: 21px;
   color: rgba(0, 0, 0, 0.6);
 }
 .mobileNumBox {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  margin-top: 50px;
-  margin-left: 8%;
+  width: 99.5%;
+  margin-top: 20%;
+  margin-left: 2.5%;
 }
 .mobileNumBox label {
   font-size: 16px;
   line-height: 21px;
   font-family: "HelveticaNeue";
   font-weight: 500;
-  margin-top: 33px;
 }
 #mobileNumber {
   width: 100%;
@@ -267,20 +259,23 @@
   padding: 14px 16px;
   border-radius: 4px;
   border: 1px solid #bcbcbc;
+  margin-top: 2%;
 }
 #mobileNumber:focus {
   outline: 0;
 }
 .mobileNumBox p {
-  font-size: 14px;
+  font-size: 13px;
   font-family: "HelveticaNeue";
   line-height: 21px;
   color: rgba(0, 0, 0, 0.6);
 }
+
 .nextPageButton {
   width: 151px;
   height: 48px;
-  margin-top: 160px;
+  margin-top: 20%;
+  float: right;
   font-size: 16px;
   font-family: "Helvetica Neue";
   font-weight: 500;
@@ -290,7 +285,6 @@
   color: #ffffff;
   background: #6b40e3;
   border: none;
-  margin-left: 85%;
   cursor: pointer;
 }
 /* Second page section stylize  */
@@ -298,7 +292,6 @@
 .experienceSection {
   width: 60%;
   background-color: #f9f9f9;
-  padding-bottom: 65px;
   display: none;
 }
 .personal_info_button_secPage {
@@ -306,19 +299,22 @@
   height: 40px;
   border-style: none;
   border-radius: 50%;
-  background-color: white;
-  margin-top: 45px;
-  margin-left: 48px;
+  background-color: #fff;
+
   cursor: pointer;
 }
 .expHeader {
+  width: 100%;
+  background-color: #f9f9f9;
+  margin: 0 auto;
+}
+.expPageBox {
   width: 70%;
   display: flex;
-  justify-content: center;
-  align-content: center;
+  /* justify-content: space-between;
+  align-items: center; */
   margin: 0 auto;
   border-bottom: 1px solid #1a1a1a;
-  margin-top: 47px;
 }
 .expTitle {
   width: 100%;
@@ -329,11 +325,7 @@
 }
 .positionBox {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  margin-left: 8%;
+  margin-left: 2.5%;
 }
 .positionBox label {
   font-size: 16px;
@@ -348,29 +340,21 @@
   padding: 14px 16px;
   border-radius: 4px;
   border: 1px solid #bcbcbc;
+  margin-top: 2%;
 }
 #position:focus {
   outline: 0;
 }
-#position::placeholder {
-  font-size: 16px;
-  font-family: "HelveticaNeue";
-  color: rgba(0, 0, 0, 0.6);
-}
 .positionBox p {
-  font-size: 14px;
+  font-size: 13px;
   font-family: "HelveticaNeue";
   line-height: 21px;
   color: rgba(0, 0, 0, 0.6);
 }
 .employerBox {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  margin-left: 8%;
-  margin-top: 31px;
+  margin-left: 2.5%;
+  margin-top: 10%;
 }
 .employerBox label {
   font-size: 16px;
@@ -385,35 +369,28 @@
   padding: 14px 16px;
   border-radius: 4px;
   border: 1px solid #bcbcbc;
+  margin-top: 2%;
 }
 #employer:focus {
   outline: 0;
 }
-#employer::placeholder {
-  font-size: 16px;
-  font-family: "HelveticaNeue";
-  color: rgba(0, 0, 0, 0.6);
-}
 .employerBox p {
-  font-size: 14px;
+  font-size: 13px;
   font-family: "HelveticaNeue";
   line-height: 21px;
   color: rgba(0, 0, 0, 0.6);
 }
 .inputboxExpPage {
   width: 100%;
-  display: flex;
-  justify-content: space-between;
-  margin-left: 8%;
-  margin-top: 33px;
-}
-.job_start_and_end {
-  width: 50%;
+  margin-left: 2.5%;
   display: flex;
   justify-content: center;
-  align-items: start;
-  flex-direction: column;
-  padding: 2px;
+  align-items: center;
+}
+.job_start_and_end {
+  width: 100%;
+  margin-left: 2.5%;
+  margin-top: 10%;
 }
 .job_start_and_end label {
   font-size: 16px;
@@ -423,45 +400,51 @@
   margin-top: 33px;
 }
 #startDate {
-  width: 95%;
+  width: 100%;
+  height: 43px;
   padding: 14px 16px;
-  height: 40px;
   border-radius: 4px;
   border: 1px solid #bcbcbc;
-  font-family: "HelveticaNeue";
-  color: rgba(0, 0, 0, 0.6);
+  margin-top: 2%;
 }
-#startDate:focus {
-  outline: 0;
+.job_start_and_end label {
+  font-size: 16px;
+  line-height: 21px;
+  font-family: "HelveticaNeue";
+  font-weight: 500;
+  margin-top: 33px;
 }
 #endDate {
-  width: 95%;
+  width: 100%;
+  height: 43px;
   padding: 14px 16px;
-  height: 40px;
   border-radius: 4px;
   border: 1px solid #bcbcbc;
-  font-family: "HelveticaNeue";
-  color: rgba(0, 0, 0, 0.6);
+  margin-top: 2%;
 }
-#endDate:focus {
-  outline: 0;
-}
+
 .descriptionBox {
-  width: 100%;
-  margin: 84px 0 0 50.5px;
   border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  flex-direction: column;
+  border-radius: 4px;
+  margin-top: 20%;
+  margin-left: 3%;
 }
 .descriptionBox label {
   font-size: 16px;
   line-height: 21px;
   font-weight: 500;
   font-family: "HelveticaNeue";
+  margin-bottom: 2%;
 }
 #description {
   padding: 14px 16px;
 }
 #description::placeholder {
-  font-size: 16px;
+  font-size: 15px;
   line-height: 21px;
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
@@ -472,7 +455,7 @@
 .border_bottom {
   border-bottom: 1px solid #c1c1c1;
   width: 100%;
-  margin-top: 58px;
+  margin-top: 15%;
   margin-left: 8%;
 }
 .expAddBtn {
@@ -491,6 +474,7 @@
   font-family: "HelveticaNeue";
   line-height: 100%;
   cursor: pointer;
+  margin-top: 15%;
 }
 .next_and_back_btn_box {
   width: 100%;
@@ -535,20 +519,21 @@
   padding-bottom: 65px;
   display: none;
 }
-.edu_header_parent {
-  display: flex;
-}
+
 .education_button {
   width: 40px;
   height: 40px;
   border-style: none;
   border-radius: 50%;
-  background-color: white;
-  margin-top: 45px;
-  margin-left: 48px;
-  cursor: pointer;
+  background-color: #fff;
 }
+
 .eduHeader {
+  width: 90%;
+  background-color: #f9f9f9;
+}
+
+.eduPageBox {
   width: 70%;
   display: flex;
   justify-content: center;
@@ -559,19 +544,13 @@
 }
 .educationBox {
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: start;
-  justify-content: center;
-  margin-left: 8%;
-  margin-top: 20px;
+  margin-left: 2.5%;
 }
 .educationBox label {
   font-size: 16px;
   line-height: 21px;
-  font-family: "HelveticaNeue";
   font-weight: 500;
-  margin-top: 33px;
+  font-family: "HelveticaNeue";
 }
 #education {
   width: 100%;
@@ -584,12 +563,12 @@
   outline: 0;
 }
 #education::placeholder {
-  font-size: 16px;
+  font-size: 15px;
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
 }
 .educationBox p {
-  font-size: 14px;
+  font-size: 13px;
   font-family: "HelveticaNeue";
   line-height: 21px;
   color: rgba(0, 0, 0, 0.6);
@@ -598,8 +577,8 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-left: 8%;
-  margin-top: 33px;
+  margin-top: 20%;
+  margin-left: 3%;
 }
 .degreeForm {
   width: 50%;
@@ -617,7 +596,7 @@
   font-family: "HelveticaNeue";
 }
 #degrees {
-  width: 100%;
+  width: 95%;
   height: 45px;
   padding: 14px 16px;
   border-radius: 4px;
@@ -688,6 +667,8 @@
 .not_valid_red {
   border: 3px solid #ef5050;
 }
-.container {
-  display: flex;
+
+.resumePhotoBox,
+.resumeLogo {
+  display: none;
 }
