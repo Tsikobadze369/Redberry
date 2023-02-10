@@ -135,7 +135,7 @@
   padding: 14px 16px;
   height: 40px;
   border-radius: 4px;
-  border: 1px solid #bcbcbc;
+  /* border: 1px solid #bcbcbc; */
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
 }
@@ -147,7 +147,7 @@
   padding: 14px 16px;
   height: 40px;
   border-radius: 4px;
-  border: 1px solid #bcbcbc;
+
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
 }
@@ -225,7 +225,7 @@
   height: 48px;
   padding: 14px 16px;
   border-radius: 4px;
-  border: 1px solid #bcbcbc;
+
   margin-top: 2%;
 }
 #email:focus {
@@ -258,7 +258,7 @@
   height: 48px;
   padding: 14px 16px;
   border-radius: 4px;
-  border: 1px solid #bcbcbc;
+
   margin-top: 2%;
 }
 #mobileNumber:focus {
@@ -661,14 +661,18 @@
   cursor: pointer;
 }
 /* educationSection stylize */
-.is_valid_green {
+.is_valid {
   border: 3px solid #98e37e;
 }
-.not_valid_red {
+.not_valid {
   border: 3px solid #ef5050;
 }
 
 .resumePhotoBox,
 .resumeLogo {
+  display: none;
+}
+.email_icon,
+.phoneIcon {
   display: none;
 }

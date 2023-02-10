@@ -23,9 +23,13 @@ let emailInput = document.querySelector("#email");
 let mobileNumberInput = document.querySelector("#mobileNumber");
 let resumeFullname = document.querySelector(".resumeFullname");
 let resumeEmailBox = document.querySelector(".resumeEmailBox");
-let emailSvg = document.querySelector(".emailSvg");
+let emailIcon = document.querySelector(".email_icon");
+let phoneIcon = document.querySelector(".phoneIcon");
 let resumeMobileBox = document.querySelector(".resumeMobileBox");
-let mobileSvg = document.querySelector(".mobileSvg");
+let degrees = document.querySelector("#degrees");
+let resumeEducationDegree = document.querySelector(".resumeEducationDegree");
+let resumeContainer = document.querySelector("#resumeContainer");
+let resumePersonal = document.querySelector(".resumePersonal");
 // input validations in personalInfo page
 
 function georgianLangValidation(input) {
@@ -46,13 +50,13 @@ function dateVal(input) {
     return false;
   } else return true;
 }
-// function minTwoSymbol(input) {
-//   if (input.value.length >= 2) {
-//     return true;
-//   } else {
-//     return false;
-//   }
-// }
+function minTwoSymbol(input) {
+  if (input.value.length >= 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
 
 // function imageUploadValidation(img) {
 //   if (img.src === "") {
@@ -68,17 +72,17 @@ nameInput.addEventListener("keyup", function () {
   nameAndSurname(nameInput.value, lastNameInput.value);
   resumeFullname.innerHTML = nameInput.value;
   if (georgianLangValidation(nameInput.value) && nameInput.value.length >= 2) {
-    nameInput.classList.add("is_valid_green");
-    nameInput.classList.remove("not_valid_red");
+    nameInput.classList.add("is_valid");
+    nameInput.classList.remove("not_valid");
   } else if (
     !georgianLangValidation(nameInput.value) &&
     nameInput.value.length > 0
   ) {
-    nameInput.classList.add("not_valid_red");
-    nameInput.classList.remove("is_valid_green");
+    nameInput.classList.add("not_valid");
+    nameInput.classList.remove("is_valid");
   } else if (nameInput.value.trim() === "") {
-    nameInput.classList.remove("is_valid_green");
-    nameInput.classList.remove("not_valid_red");
+    nameInput.classList.remove("is_valid");
+    nameInput.classList.remove("not_valid");
   }
   console.log(nameInput);
 });
@@ -88,88 +92,126 @@ lastNameInput.addEventListener("keyup", function () {
     georgianLangValidation(lastNameInput.value) &&
     lastNameInput.value.length >= 2
   ) {
-    lastNameInput.classList.add("is_valid_green");
-    lastNameInput.classList.remove("not_valid_red");
+    lastNameInput.classList.add("is_valid");
+    lastNameInput.classList.remove("not_valid");
   } else if (
     !georgianLangValidation(lastNameInput.value) &&
     lastNameInput.value.length > 0
   ) {
-    lastNameInput.classList.add("not_valid_red");
-    lastNameInput.classList.remove("is_valid_green");
+    lastNameInput.classList.add("not_valid");
+    lastNameInput.classList.remove("is_valid");
   } else if (lastNameInput.value.trim() === "") {
-    lastNameInput.classList.remove("is_valid_green");
-    lastNameInput.classList.remove("not_valid_red");
+    lastNameInput.classList.remove("is_valid");
+    lastNameInput.classList.remove("not_valid");
   }
 });
 
 emailInput.addEventListener("keyup", function () {
   resumeEmailBox.textContent = emailInput.value;
-  emailSvg.style.display = "block";
-  console.log(emailInput);
+  emailIcon.style.display = "block";
+  if (emailInput.value.trim() === "") {
+    emailIcon.style.display = "none";
+    emailInput.classList.remove("is_valid");
+    emailInput.classList.remove("not_valid");
+  } else if (emailValidation(emailInput.value)) {
+    emailInput.classList.add("is_valid");
+    emailInput.classList.remove("not_valid");
+  } else {
+    emailInput.classList.remove("is_valid");
+    emailInput.classList.add("not_valid");
+  }
 });
 mobileNumberInput.addEventListener("keyup", function () {
   resumeMobileBox.textContent = mobileNumberInput.value;
-  mobileSvg.style.display = "block";
-  console.log(mobileNumberInput);
+  phoneIcon.style.display = "block";
+  if (georgianNumberFormat(mobileNumberInput.value)) {
+    mobileNumberInput.classList.add("is_valid");
+    mobileNumberInput.classList.remove("not_valid");
+  } else if (
+    !georgianNumberFormat(mobileNumberInput.value) &&
+    mobileNumberInput.value.length > 0
+  ) {
+    mobileNumberInput.classList.remove("is_valid");
+    mobileNumberInput.classList.add("not_valid");
+  } else if (mobileNumberInput.value.trim() === "") {
+    phoneIcon.style.display = "none";
+    mobileNumberInput.classList.remove("is_valid");
+    mobileNumberInput.classList.remove("not_valid");
+  }
 });
 // input validations in personalInfo page
 
-photoUpload.addEventListener("change", function () {
-  const file = this.files[0];
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    resumePic.src = e.target.result;
-    resumePic.style.display = "block";
-  };
-  reader.readAsDataURL(new Blob([file]));
-});
+// photoUpload.addEventListener("change", function () {
+//   const file = this.files[0];
+//   const reader = new FileReader();
+//   reader.onload = function (e) {
+//     resumePic.src = e.target.result;
+//     resumePic.style.display = "block";
+//   };
+//   reader.readAsDataURL(new Blob([file]));
+// });
 
-uploadButton.addEventListener("click", function (e) {
-  e.preventDefault();
-  photoUpload.click();
-});
+// uploadButton.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   photoUpload.click();
+// });
 resumeButton.addEventListener("click", function () {
   mainPage.style.display = "none";
   personalInfo.style.display = "flex";
+  form.style.display = "flex";
 });
-backButton.addEventListener("click", function () {
-  personalInfo.style.display = "none";
-  mainPage.style.display = "block";
-});
-backButtonSecPage.addEventListener("click", function () {
-  experienceSection.style.display = "none";
-  mainPage.style.display = "block";
-});
+// backButton.addEventListener("click", function () {
+//   personalInfo.style.display = "none";
+//   mainPage.style.display = "block";
+// });
+// backButtonSecPage.addEventListener("click", function () {
+//   experienceSection.style.display = "none";
+//   mainPage.style.display = "block";
+// });
 
-nextPageButton.addEventListener("click", function (e) {
-  e.preventDefault();
-  personalInfo.style.display = "none";
-  pages.textContent = "2/3";
-  experienceSection.style.display = "block";
-  title.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
-});
-backBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  experienceSection.style.display = "none";
-  personalInfo.style.display = "block";
-  title.textContent = "პირადი ინფო";
-  pages.textContent = "1/3";
-});
-nextBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  experienceSection.style.display = "none";
-  educationSection.style.display = "flex";
-  title.textContent = "ᲒᲐᲜᲐᲗᲚᲔᲑᲐ";
-  pages.textContent = "3/3";
-});
-educationButton.addEventListener("click", function () {
-  educationSection.style.display = "none";
-  mainPage.style.display = "block";
-});
-backToTheExpPageBtn.addEventListener("click", function (e) {
-  e.preventDefault();
-  educationSection.style.display = "none";
-  experienceSection.style.display = "block";
-  title.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
-  pages.textContent = "2/3";
-});
+// nextPageButton.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   personalInfo.style.display = "none";
+//   pages.textContent = "2/3";
+//   experienceSection.style.display = "block";
+//   title.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
+// });
+// backBtn.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   experienceSection.style.display = "none";
+//   personalInfo.style.display = "block";
+//   title.textContent = "პირადი ინფო";
+//   pages.textContent = "1/3";
+// });
+// nextBtn.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   experienceSection.style.display = "none";
+//   educationSection.style.display = "flex";
+//   title.textContent = "ᲒᲐᲜᲐᲗᲚᲔᲑᲐ";
+//   pages.textContent = "3/3";
+// });
+// educationButton.addEventListener("click", function () {
+//   educationSection.style.display = "none";
+//   mainPage.style.display = "block";
+// });
+// backToTheExpPageBtn.addEventListener("click", function (e) {
+//   e.preventDefault();
+//   educationSection.style.display = "none";
+//   experienceSection.style.display = "block";
+//   title.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
+//   pages.textContent = "2/3";
+// });
+
+// Axios/Get information from API
+// axios
+//   .get("https://resume.redberryinternship.ge/api/degrees")
+//   .then((response) => {
+//     const degreeData = response.data;
+//     console.log(response.data);
+//     degreeData.forEach((element) => {
+//       let degreeOption = document.createElement("option");
+//       degrees.appendChild(degreeOption);
+//       degreeOption.value = element.title;
+//       degreeOption.innerHTML = element.title;
+//     });
+//   });

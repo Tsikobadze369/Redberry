@@ -25,6 +25,7 @@
       <button class="personal_info_button">
         <img src="./images/Vector.png" alt="arrow" />
       </button>
+      
       <section class="header">
         <div class="persInfoBox">
           <h1 class="title">ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ</h1>
@@ -33,6 +34,7 @@
       
 
       <!-- validation form -->
+      
       <form class="form">
         <div class="inputbox">
           <div class="name_and_last_name">
@@ -77,7 +79,9 @@
           <button class="nextPageButton">ᲨᲔᲛᲓᲔᲒᲘ</button>
         </div>
       </form>
+      
       </section>
+      
       <!-- validation form -->
     </section>
     <!-- Second page section,about personal information,ends -->
@@ -170,8 +174,8 @@
         <div class="inputboxEduPage">
           <div class="degreeForm">
             <label>ხარისხი</label>
-            <select id="degrees" name="degree" form="degree">
-              <option aria-placeholder="chooseDegree">აირჩიეთ ხარისხი</option>
+            <select id="degrees"  aria-placeholder="აირჩიეთ ხარისხი">
+              <!-- <option </option>
               <option value="average">საშუალო სკოლის დიპლომი</option>
               <option value="bachelor">ბაკალავრი</option>
               <option value="master">მაგისტრი</option>
@@ -179,7 +183,7 @@
               <option value="ასოცირებული ხარისხი">ასოცირებული ხარისხი</option>
               <option value="student">სტუდენტი</option>
               <option value="college">კოლეჯი (ხარისხის გარეშე)</option>
-              <option value="etc">სხვა</option>
+              <option value="etc">სხვა</option> -->
             </select>
           </div>
           <div class="eduEnd">
@@ -214,11 +218,14 @@
         <div class="resumePersonalInfo">
           <h3 class="resumeFullname"></h3>
           <div class="resumeEmailBox">
+            <img src="./images/email.png" class="email_icon" alt="email_Icon">
+          
+            
             <!-- აქ უნდა ჩავსვა მეილის აიქონი -->
             <p class="resumeEmail"></p>
           </div>
           <div class="resumeMobileBox">
-            <!-- აქ უნდა ჩავსვა ტელეფონის აიქონი -->
+            <img src="./images/phone.png" class="phoneIcon"   alt="phoneIcon">
             <p class="resumeNumber"></p>
           </div>
           <h3 class="resumeAbout"></h3>
@@ -235,6 +242,7 @@
         <p class="resumeExperienceDate"></p>
         <p class="resumeExperienceDescription"></p>
       </div>
+      <div id="resumeContainer">
       <div class="resumeEducationBox">
         <h2 class="resumeEducationTitle"></h2>
         <p class="resumeEducationSchool"></p>
@@ -242,9 +250,10 @@
         <p class="resumeEducationDate"></p>
         <p class="resumeEducationDescription"></p>
       </div>
+      </div>
     </section>
     <!-- resume section ends here -->
-
+ <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./main.js"></script>
   </body>
 </html>
