@@ -1,6 +1,7 @@
 const resumeButton = document.querySelector(".resumeButton");
 const mainPage = document.querySelector(".mainPage");
 const personalInfo = document.querySelector(".personalInfo");
+const personalPage = document.querySelector(".personalPage");
 const backButton = document.querySelector(".personal_info_button");
 const nextBtn = document.querySelector(".next_btn");
 const backToTheExpPageBtn = document.querySelector(".back_to_exp_pg_btn");
@@ -16,7 +17,7 @@ const photoUpload = document.querySelector("#photoUpload");
 const uploadButton = document.querySelector(".uploadButton");
 const backBtn = document.querySelector(".back_btn");
 const title = document.querySelector(".title");
-const form = document.querySelector(".form");
+const personalPageform = document.querySelector(".personalPageform");
 let nameInput = document.querySelector("#name");
 let lastNameInput = document.querySelector("#last_name");
 let emailInput = document.querySelector("#email");
@@ -30,7 +31,9 @@ let degrees = document.querySelector("#degrees");
 let resumeEducationDegree = document.querySelector(".resumeEducationDegree");
 let resumeContainer = document.querySelector("#resumeContainer");
 let resumePersonal = document.querySelector(".resumePersonal");
-// input validations in personalInfo page
+let resumeSection = document.querySelector(".resumeSection");
+
+// შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 function georgianLangValidation(input) {
   let regExp = /^[ა-ჰ]+$/;
@@ -45,29 +48,16 @@ function georgianNumberFormat(mobile) {
   let mobileRegex = /^(\+995)\d{9}$/;
   return mobileRegex.test(mobile);
 }
-function dateVal(input) {
-  if (input.value === "") {
-    return false;
-  } else return true;
-}
-function minTwoSymbol(input) {
-  if (input.value.length >= 2) {
-    return true;
-  } else {
-    return false;
-  }
-}
+// შეზღუდვები ენაზე,მეილზე,ნომერზე
 
-// function imageUploadValidation(img) {
-//   if (img.src === "") {
-//     return false;
-//   } else return true;
-// }
+// სახელის და გვარის ინფუთების ადგილის გამოტოვებები
 
 function nameAndSurname(firstString, SecondString) {
   resumeFullname.innerHTML = firstString + " " + SecondString;
 }
+// სახელის და გვარის ინფუთების ადგილის გამოტოვებები
 
+// input validations in personalInfo page
 nameInput.addEventListener("keyup", function () {
   nameAndSurname(nameInput.value, lastNameInput.value);
   resumeFullname.innerHTML = nameInput.value;
@@ -84,7 +74,6 @@ nameInput.addEventListener("keyup", function () {
     nameInput.classList.remove("is_valid");
     nameInput.classList.remove("not_valid");
   }
-  console.log(nameInput);
 });
 lastNameInput.addEventListener("keyup", function () {
   nameAndSurname(nameInput.value, lastNameInput.value);
@@ -141,66 +130,113 @@ mobileNumberInput.addEventListener("keyup", function () {
 });
 // input validations in personalInfo page
 
-// photoUpload.addEventListener("change", function () {
-//   const file = this.files[0];
-//   const reader = new FileReader();
-//   reader.onload = function (e) {
-//     resumePic.src = e.target.result;
-//     resumePic.style.display = "block";
-//   };
-//   reader.readAsDataURL(new Blob([file]));
-// });
+// personal page-ზე როა ფოტოს ატვირთვის ღილაკი ეს მაგის კოდია
+photoUpload.addEventListener("change", function () {
+  const file = this.files[0];
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    resumePic.src = e.target.result;
+    resumePic.style.display = "block";
+  };
+  reader.readAsDataURL(new Blob([file]));
+});
 
-// uploadButton.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   photoUpload.click();
-// });
+uploadButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  photoUpload.click();
+});
+// personal page-ზე როა ფოტოს ატვირთვის ღილაკი ეს მაგის კოდია
+
+// მეინფეიჯის resume button არის ეს
 resumeButton.addEventListener("click", function () {
   mainPage.style.display = "none";
   personalInfo.style.display = "flex";
-  form.style.display = "flex";
+  personalPage.style.display = "block";
+  personalPageform.style.display = "flex";
+  resumeSection.style.margin = "0";
 });
-// backButton.addEventListener("click", function () {
-//   personalInfo.style.display = "none";
-//   mainPage.style.display = "block";
-// });
-// backButtonSecPage.addEventListener("click", function () {
-//   experienceSection.style.display = "none";
-//   mainPage.style.display = "block";
-// });
 
-// nextPageButton.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   personalInfo.style.display = "none";
-//   pages.textContent = "2/3";
-//   experienceSection.style.display = "block";
-//   title.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
-// });
-// backBtn.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   experienceSection.style.display = "none";
-//   personalInfo.style.display = "block";
-//   title.textContent = "პირადი ინფო";
-//   pages.textContent = "1/3";
-// });
-// nextBtn.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   experienceSection.style.display = "none";
-//   educationSection.style.display = "flex";
-//   title.textContent = "ᲒᲐᲜᲐᲗᲚᲔᲑᲐ";
-//   pages.textContent = "3/3";
-// });
-// educationButton.addEventListener("click", function () {
-//   educationSection.style.display = "none";
-//   mainPage.style.display = "block";
-// });
-// backToTheExpPageBtn.addEventListener("click", function (e) {
-//   e.preventDefault();
-//   educationSection.style.display = "none";
-//   experienceSection.style.display = "block";
-//   title.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
-//   pages.textContent = "2/3";
-// });
+// მეინფეიჯის resume button არის ეს
+
+// ეს არის თავში რომ წრეში პატარა ვექტორებია,ეგ ღილაკი პერსონალფეიჯის გვერდზე
+backButton.addEventListener("click", function () {
+  personalInfo.style.display = "none";
+  mainPage.style.display = "block";
+});
+// ეს არის თავში რომ წრეში პატარა ეროუა,ეგ ღილაკი პერსონალფეიჯის გვერდზე
+
+// ეს არის გამოცდილების გვერდზე რომ პატარა ეროუა, მაგის ღილაკი
+backButtonSecPage.addEventListener("click", function () {
+  experienceSection.style.display = "none";
+  mainPage.style.display = "block";
+});
+// ეს არის გამოცდილების გვერდზე რომ პატარა ეროუა, მაგის ღილაკი
+
+// პერსონალურ გვერდზე როა, შემდეგ გვერდზე გადასასვლელი ბათონი არის ეს.
+nextPageButton.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  if (nameInput.value.length === 0) {
+    nameInput.classList.add("not_valid");
+  }
+  if (lastNameInput.value.length === 0) {
+    lastNameInput.classList.add("not_valid");
+  }
+  if (emailInput.value.length === 0) {
+    emailInput.classList.add("not_valid");
+  }
+  if (mobileNumberInput.value.length === 0) {
+    mobileNumberInput.classList.add("not_valid");
+  }
+  if (
+    georgianLangValidation(nameInput.value, lastNameInput.value) &&
+    emailValidation(emailInput.value) &&
+    georgianNumberFormat(mobileNumberInput.value)
+  ) {
+    personalInfo.style.display = "none";
+    pages.textContent = "2/3";
+    experienceSection.style.display = "block";
+    title.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
+  }
+});
+// პერსონალური გვერდის შემდეგ გვერდზე გადასასვლელი ბათონი არის ეს
+
+// გამოცდილების გვერდზე უკან გადასასვლელი ღილაკია ეს
+backBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  experienceSection.style.display = "none";
+  personalInfo.style.display = "block";
+  title.textContent = "პირადი ინფო";
+  pages.textContent = "1/3";
+});
+// გამოცდილების გვერდზეა ეს, უკან გადასასვლელი ღილაკიაააა
+
+// გამოცდილების გვერდზზეა ესეც, შემდეგ გვერდზე გადასასვლელი ღილაკია
+nextBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  experienceSection.style.display = "none";
+  educationSection.style.display = "flex";
+  title.textContent = "ᲒᲐᲜᲐᲗᲚᲔᲑᲐ";
+  pages.textContent = "3/3";
+});
+// გამოცდილების გვერდზზეა ესეც, შემდეგ გვერდზე გადასასვლელი ღილაკია
+
+// ესეც პატარა ეროუიანი წრეა, განათლების გვერდზე
+educationButton.addEventListener("click", function () {
+  educationSection.style.display = "none";
+  mainPage.style.display = "block";
+});
+// ესეც პატარა ეროუიანი წრეა, განათლების გვერდზე
+
+// განათლების გვერდზე არის ეს,უკან გადასასვლელი ღილაკია,გამოცდილების გვერდზე გადადის უკან
+backToTheExpPageBtn.addEventListener("click", function (e) {
+  e.preventDefault();
+  educationSection.style.display = "none";
+  experienceSection.style.display = "block";
+  title.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
+  pages.textContent = "2/3";
+});
+// განათლების გვერდზე არის ეს,უკან გადასასვლელი ღილაკია,გამოცდილების გვერდზე გადადის უკან
 
 // Axios/Get information from API
 // axios

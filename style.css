@@ -55,8 +55,10 @@
 .personalInfo {
   width: 60%;
   background-color: #f9f9f9;
-  padding-bottom: 6px;
   display: none;
+}
+.personalPage {
+  width: 100%;
 }
 .personal_info_button {
   width: 40px;
@@ -68,10 +70,7 @@
   margin-left: 3%;
   cursor: pointer;
 }
-.header {
-  width: 90%;
-  background-color: #f9f9f9;
-}
+
 .persInfoBox {
   width: 70%;
   display: flex;
@@ -79,7 +78,7 @@
   align-content: center;
   margin: 0 auto;
   border-bottom: 1px solid #1a1a1a;
-  margin-top: 47px;
+  margin-top: 5%;
 }
 .title {
   width: 100%;
@@ -94,7 +93,7 @@
   width: 100%;
   text-align: Right;
 }
-.form {
+.personalPageform {
   width: 73%;
   display: flex;
   flex-direction: column;
@@ -102,18 +101,17 @@
   margin-top: 15%;
 }
 .inputbox {
-  width: 99.5%;
+  width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-left: 2.5%;
 }
 .name_and_last_name {
-  width: 50%;
+  width: 100%;
+  padding: 1%;
   display: flex;
   justify-content: center;
-  align-items: start;
+
   flex-direction: column;
-  padding: 2px;
 }
 .name_and_last_name p {
   font-size: 13px;
@@ -131,11 +129,9 @@
   margin-bottom: 2%;
 }
 #name {
-  width: 95%;
   padding: 14px 16px;
   height: 40px;
   border-radius: 4px;
-  /* border: 1px solid #bcbcbc; */
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
 }
@@ -143,11 +139,9 @@
   outline: 0;
 }
 #last_name {
-  width: 95%;
   padding: 14px 16px;
   height: 40px;
   border-radius: 4px;
-
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
 }
@@ -155,9 +149,7 @@
   outline: 0;
 }
 .upload {
-  width: 99.5%;
-  margin-top: 20%;
-  margin-left: 2.5%;
+  margin-top: 15%;
 }
 .upload_text {
   width: 100%;
@@ -181,14 +173,13 @@
   cursor: pointer;
 }
 .textareaBox {
-  border-radius: 4px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: start;
   flex-direction: column;
   border-radius: 4px;
-  margin-top: 20%;
-  margin-left: 3%;
+  margin-top: 15%;
 }
 .textareaBox label {
   font-size: 16px;
@@ -199,9 +190,11 @@
 }
 #aboutMe {
   padding: 14px 16px;
+  height: 104px;
+  width: 100%;
 }
 #aboutMe::placeholder {
-  font-size: 15px;
+  font-size: 14px;
   line-height: 21px;
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
@@ -210,9 +203,10 @@
   outline: 0;
 }
 .emailBox {
-  width: 99.5%;
-  margin-top: 20%;
-  margin-left: 2.5%;
+  width: 100%;
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
 }
 .emailBox label {
   font-size: 16px;
@@ -225,7 +219,6 @@
   height: 48px;
   padding: 14px 16px;
   border-radius: 4px;
-
   margin-top: 2%;
 }
 #email:focus {
@@ -243,9 +236,10 @@
   color: rgba(0, 0, 0, 0.6);
 }
 .mobileNumBox {
-  width: 99.5%;
-  margin-top: 20%;
-  margin-left: 2.5%;
+  width: 100%;
+  margin-top: 15%;
+  display: flex;
+  flex-direction: column;
 }
 .mobileNumBox label {
   font-size: 16px;
@@ -258,7 +252,6 @@
   height: 48px;
   padding: 14px 16px;
   border-radius: 4px;
-
   margin-top: 2%;
 }
 #mobileNumber:focus {
@@ -300,20 +293,21 @@
   border-style: none;
   border-radius: 50%;
   background-color: #fff;
-
+  margin-top: 5%;
+  margin-left: 3%;
   cursor: pointer;
+  /* position: absolute; */
 }
 .expHeader {
   width: 100%;
-  background-color: #f9f9f9;
-  margin: 0 auto;
 }
 .expPageBox {
-  width: 70%;
+  width: 73%;
   display: flex;
-  /* justify-content: space-between;
-  align-items: center; */
+  justify-content: center;
+  align-content: center;
   margin: 0 auto;
+  padding: 12px 0;
   border-bottom: 1px solid #1a1a1a;
 }
 .expTitle {
@@ -323,9 +317,15 @@
   line-height: 29.3px;
   font-family: "HelveticaNeue";
 }
+.expPageform {
+  width: 73%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 15%;
+}
 .positionBox {
   width: 100%;
-  margin-left: 2.5%;
 }
 .positionBox label {
   font-size: 16px;
@@ -353,7 +353,7 @@
 }
 .employerBox {
   width: 100%;
-  margin-left: 2.5%;
+
   margin-top: 10%;
 }
 .employerBox label {
@@ -389,7 +389,7 @@
 }
 .job_start_and_end {
   width: 100%;
-  margin-left: 2.5%;
+  margin-right: 5%;
   margin-top: 10%;
 }
 .job_start_and_end label {
@@ -399,39 +399,23 @@
   font-weight: 500;
   margin-top: 33px;
 }
-#startDate {
-  width: 100%;
-  height: 43px;
-  padding: 14px 16px;
-  border-radius: 4px;
-  border: 1px solid #bcbcbc;
-  margin-top: 2%;
-}
-.job_start_and_end label {
-  font-size: 16px;
-  line-height: 21px;
-  font-family: "HelveticaNeue";
-  font-weight: 500;
-  margin-top: 33px;
-}
+#startDate,
 #endDate {
   width: 100%;
   height: 43px;
   padding: 14px 16px;
   border-radius: 4px;
   border: 1px solid #bcbcbc;
-  margin-top: 2%;
 }
 
 .descriptionBox {
-  border-radius: 4px;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: start;
   flex-direction: column;
   border-radius: 4px;
-  margin-top: 20%;
-  margin-left: 3%;
+  margin-top: 15%;
 }
 .descriptionBox label {
   font-size: 16px;
@@ -442,9 +426,11 @@
 }
 #description {
   padding: 14px 16px;
+  height: 104px;
+  width: 100%;
 }
 #description::placeholder {
-  font-size: 15px;
+  font-size: 13px;
   line-height: 21px;
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
@@ -456,16 +442,13 @@
   border-bottom: 1px solid #c1c1c1;
   width: 100%;
   margin-top: 15%;
-  margin-left: 8%;
 }
 .expAddBtn {
-  margin-top: 45px;
   width: 289px;
   height: 48px;
   background-color: #62a1eb;
   border-radius: 4px;
   padding: 18px, 60px, 18px, 60px;
-  margin-left: 8%;
   border-style: none;
   color: #ffffff;
   font-weight: 500;
@@ -478,11 +461,10 @@
 }
 .next_and_back_btn_box {
   width: 100%;
-  margin-top: 115px;
+  margin-top: 15%;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-left: 8%;
 }
 .back_btn {
   border: none;
@@ -516,7 +498,6 @@
 .educationSection {
   width: 60%;
   background-color: #f9f9f9;
-  padding-bottom: 65px;
   display: none;
 }
 
@@ -529,22 +510,28 @@
 }
 
 .eduHeader {
-  width: 90%;
-  background-color: #f9f9f9;
+  width: 100%;
 }
 
 .eduPageBox {
-  width: 70%;
+  width: 73%;
   display: flex;
   justify-content: center;
   align-content: center;
   margin: 0 auto;
+  padding: 12px 0;
+  margin-top: 5%;
   border-bottom: 1px solid #1a1a1a;
-  margin-top: 47px;
 }
 .educationBox {
   width: 100%;
-  margin-left: 2.5%;
+}
+.eduPageform {
+  width: 73%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  margin-top: 15%;
 }
 .educationBox label {
   font-size: 16px;
@@ -563,7 +550,7 @@
   outline: 0;
 }
 #education::placeholder {
-  font-size: 15px;
+  font-size: 13px;
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
 }
@@ -577,8 +564,7 @@
   width: 100%;
   display: flex;
   justify-content: space-between;
-  margin-top: 20%;
-  margin-left: 3%;
+  margin-top: 15%;
 }
 .degreeForm {
   width: 50%;
@@ -595,7 +581,8 @@
   font-weight: 500;
   font-family: "HelveticaNeue";
 }
-#degrees {
+#degrees,
+#eduEndDate {
   width: 95%;
   height: 45px;
   padding: 14px 16px;
@@ -613,15 +600,7 @@
   flex-direction: column;
   padding: 2px;
 }
-#eduEndDate {
-  width: 95%;
-  padding: 14px 16px;
-  height: 45px;
-  border-radius: 4px;
-  border: 1px solid #bcbcbc;
-  font-family: "HelveticaNeue";
-  color: rgba(0, 0, 0, 0.6);
-}
+
 .eduEnd label {
   font-size: 16px;
   line-height: 21px;
@@ -675,4 +654,8 @@
 .email_icon,
 .phoneIcon {
   display: none;
+}
+.resumeSection {
+  position: relative;
+  width: 40%;
 }

@@ -25,17 +25,15 @@
       <button class="personal_info_button">
         <img src="./images/Vector.png" alt="arrow" />
       </button>
-      
-      <section class="header">
+      <section class="personalPage">
         <div class="persInfoBox">
           <h1 class="title">ᲞᲘᲠᲐᲓᲘ ᲘᲜᲤᲝ</h1>
           <p class="pages">1/3</p>
         </div>
-      
 
       <!-- validation form -->
       
-      <form class="form">
+      <form class="personalPageform">
         <div class="inputbox">
           <div class="name_and_last_name">
             <label for="name" class="labelName">სახელი</label>
@@ -59,7 +57,7 @@
           <label for="aboutMe">ჩემ შესახებ (არასავალდებულო)</label>
           <textarea
             rows="10"
-            cols="70"
+            cols="50"
             id="aboutMe"
             style="resize: none"
             placeholder="ზოგადი ინფო შენ შესახებ"
@@ -79,16 +77,16 @@
           <button class="nextPageButton">ᲨᲔᲛᲓᲔᲒᲘ</button>
         </div>
       </form>
-      
       </section>
-      
+      </section>
       <!-- validation form -->
-    </section>
+    
     <!-- Second page section,about personal information,ends -->
 
+
     <!-- experience page section,starts -->
-    <section class="experienceSection">
-      
+    
+      <section class="experienceSection">
         <button class="personal_info_button_secPage">
           <img src="./images/Vector.png" alt="arrow" />
         </button>
@@ -100,7 +98,7 @@
         
       
       <!-- validation form -->
-      <form class="form">
+      <form class="expPageform">
         <div class="positionBox">
           <label for="position">თანამდებობა</label>
           <input
@@ -148,8 +146,11 @@
         </div>
       </form>
       </section>
+      </section>
+      
       <!-- validation form -->
-    </section>
+    
+    
     <!-- experience page section,ends -->
     <!-- education page section,starts -->
     <section class="educationSection">
@@ -165,7 +166,7 @@
         
       </div>
       <!-- validation form -->
-      <form class="form">
+      <form class="eduPageform">
         <div class="educationBox">
           <label for="education">სასწავლებელი</label>
           <input id="education" placeholder="სასწავლებელი" type="text" />
@@ -226,15 +227,18 @@
           </div>
           <div class="resumeMobileBox">
             <img src="./images/phone.png" class="phoneIcon"   alt="phoneIcon">
+            <!-- es telefonis icon-ia -->
             <p class="resumeNumber"></p>
           </div>
           <h3 class="resumeAbout"></h3>
           <p class="resumeAboutText"></p>
         </div>
         <div class="resumePhotoBox">
-          <img class="resumeImg" alt="image" />
+          <img class="resumeImg" alt="image" />  
+          <!-- აქ რო უნდა აიტვირთოს ეგ იმიჯია -->
         </div>
       </div>
+    
       <img class="resumeLogo" src="./Logo/LOGO-12 1.png" alt="resume_logo" />
       <div class="resumeExperienceBox">
         <h2 class="resumeExperienceTitle"></h2>
@@ -253,7 +257,7 @@
       </div>
     </section>
     <!-- resume section ends here -->
- <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="./main.js"></script>
   </body>
 </html>
