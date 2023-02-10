@@ -32,6 +32,8 @@ let resumeEducationDegree = document.querySelector(".resumeEducationDegree");
 let resumeContainer = document.querySelector("#resumeContainer");
 let resumePersonal = document.querySelector(".resumePersonal");
 let resumeSection = document.querySelector(".resumeSection");
+let aboutMe = document.querySelector("#aboutMe");
+let resumeAbout = document.querySelector(".resumeAbout");
 
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
@@ -128,6 +130,22 @@ mobileNumberInput.addEventListener("keyup", function () {
     mobileNumberInput.classList.remove("not_valid");
   }
 });
+
+// ტექსტარეაში ჩაწერილი ტექსტიიი
+
+aboutMe.addEventListener("keyup", function () {
+  if (aboutMe.value.length > 0) {
+    resumeAbout.textContent = "ᲩᲔᲛ ᲨᲔᲡᲐᲮᲔᲑ";
+  }
+  if (aboutMe.value.trim() === "") {
+    resumeAbout.textContent = "";
+  } else {
+    resumeAbout.textContent = "ᲩᲔᲛ ᲨᲔᲡᲐᲮᲔᲑ";
+  }
+});
+
+// ტექსტარეაში ჩაწერილი ტექსტიიი
+
 // input validations in personalInfo page
 
 // personal page-ზე როა ფოტოს ატვირთვის ღილაკი ეს მაგის კოდია
@@ -153,7 +171,6 @@ resumeButton.addEventListener("click", function () {
   personalInfo.style.display = "flex";
   personalPage.style.display = "block";
   personalPageform.style.display = "flex";
-  resumeSection.style.margin = "0";
 });
 
 // მეინფეიჯის resume button არის ეს

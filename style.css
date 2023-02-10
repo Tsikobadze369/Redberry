@@ -660,7 +660,7 @@
   width: 40%;
 } */
 
-.test {
+.treeSectionParent {
   max-width: 1920px;
   width: 100%;
   display: flex;
@@ -670,4 +670,8 @@
 }
 .resumeMainSection {
   width: 40%;
+  margin: 4% 4%;
+}
+.resumeAbout {
+  color: #f93b1d;
 }
