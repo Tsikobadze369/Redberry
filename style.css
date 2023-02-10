@@ -53,7 +53,7 @@
 
 /* Second page section stylize  */
 .personalInfo {
-  width: 60%;
+  width: 100%;
   background-color: #f9f9f9;
   display: none;
 }
@@ -283,7 +283,7 @@
 /* Second page section stylize  */
 /* experienceSection stylize */
 .experienceSection {
-  width: 60%;
+  width: 100%;
   background-color: #f9f9f9;
   display: none;
 }
@@ -496,7 +496,7 @@
 /* experienceSection stylize */
 /* educationSection stylize */
 .educationSection {
-  width: 60%;
+  width: 100%;
   background-color: #f9f9f9;
   display: none;
 }
@@ -655,7 +655,19 @@
 .phoneIcon {
   display: none;
 }
-.resumeSection {
+/* .resumeSection {
   position: relative;
+  width: 40%;
+} */
+
+.test {
+  max-width: 1920px;
+  width: 100%;
+  display: flex;
+}
+.treeSection {
+  width: 60%;
+}
+.resumeMainSection {
   width: 40%;
 }
