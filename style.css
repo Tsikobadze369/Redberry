@@ -25,8 +25,8 @@
 }
 .mainPage .LOGO-40 {
   width: 18%;
-  margin-top: 200px;
-  margin-left: 56%;
+  top: 200px;
+  left: 56%;
   position: relative;
 }
 .resumeButton {
@@ -50,7 +50,16 @@
   margin: 0 auto;
 }
 /* First page stylize */
+.threeSectionParent {
+  max-width: 1920px;
+  width: 100%;
 
+  display: none;
+}
+.threeSection {
+  width: 60%;
+  background-color: #f9f9f9;
+}
 /* Second page section stylize  */
 .personalInfo {
   width: 100%;
@@ -66,8 +75,9 @@
   border-style: none;
   border-radius: 50%;
   background-color: #fff;
-  margin-top: 45px;
-  margin-left: 3%;
+  position: absolute;
+  top: 2.5rem;
+  left: 2rem;
   cursor: pointer;
 }
 
@@ -110,7 +120,6 @@
   padding: 1%;
   display: flex;
   justify-content: center;
-
   flex-direction: column;
 }
 .name_and_last_name p {
@@ -293,10 +302,10 @@
   border-style: none;
   border-radius: 50%;
   background-color: #fff;
-  margin-top: 5%;
-  margin-left: 3%;
+  top: 4rem;
+  left: 2rem;
   cursor: pointer;
-  /* position: absolute; */
+  position: absolute;
 }
 .expHeader {
   width: 100%;
@@ -306,8 +315,8 @@
   display: flex;
   justify-content: center;
   align-content: center;
-  margin: 0 auto;
-  padding: 12px 0;
+  margin: 0px auto;
+  margin-top: 4rem;
   border-bottom: 1px solid #1a1a1a;
 }
 .expTitle {
@@ -507,6 +516,10 @@
   border-style: none;
   border-radius: 50%;
   background-color: #fff;
+  top: 4rem;
+  left: 2rem;
+  cursor: pointer;
+  position: absolute;
 }
 
 .eduHeader {
@@ -660,18 +673,59 @@
   width: 40%;
 } */
 
-.treeSectionParent {
-  max-width: 1920px;
-  width: 100%;
-  display: flex;
-}
-.treeSection {
-  width: 60%;
-}
 .resumeMainSection {
   width: 40%;
   margin: 4% 4%;
+  position: relative;
 }
 .resumeAbout {
   color: #f93b1d;
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "HelveticaNeue";
+  line-height: 21.98px;
+  margin-top: 20%;
+}
+.resumeAboutText {
+  max-width: 430px;
+  width: 100%;
+  margin-top: 5%;
+  font-size: 16px;
+  font-family: "HelveticaNeue";
+  color: #000000;
+  line-height: 22px;
+}
+.resumeFullname {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 41.51px;
+  color: #f93b1d;
+  margin-bottom: 5%;
+  /* overflow: auto; */
+}
+.logo12 {
+  width: 42px;
+  height: 42px;
+  position: absolute;
+  top: 100%;
+}
+.resumeEmailBox {
+  display: flex;
+}
+.emailIcon {
+  width: 16.67px;
+  height: 16.67px;
+  display: none;
+  margin-right: 0.5rem;
+}
+.resumeMobileBox {
+  display: flex;
+  margin-top: 0.8rem;
+}
+.phoneIcon {
+  width: 16.67px;
+  height: 16.67px;
+  display: none;
+  margin-right: 0.5rem;
 }

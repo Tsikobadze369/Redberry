@@ -9,6 +9,7 @@ const backButtonSecPage = document.querySelector(
   ".personal_info_button_secPage"
 );
 const nextPageButton = document.querySelector(".nextPageButton");
+const threeSectionParent = document.querySelector(".threeSectionParent");
 const experienceSection = document.querySelector(".experienceSection");
 const educationSection = document.querySelector(".educationSection");
 const educationButton = document.querySelector(".education_button");
@@ -24,7 +25,8 @@ let emailInput = document.querySelector("#email");
 let mobileNumberInput = document.querySelector("#mobileNumber");
 let resumeFullname = document.querySelector(".resumeFullname");
 let resumeEmailBox = document.querySelector(".resumeEmailBox");
-let emailIcon = document.querySelector(".email_icon");
+let resumeEmail = document.querySelector(".resumeEmail");
+let emailIcon = document.querySelector(".emailIcon");
 let phoneIcon = document.querySelector(".phoneIcon");
 let resumeMobileBox = document.querySelector(".resumeMobileBox");
 let degrees = document.querySelector("#degrees");
@@ -34,6 +36,8 @@ let resumePersonal = document.querySelector(".resumePersonal");
 let resumeSection = document.querySelector(".resumeSection");
 let aboutMe = document.querySelector("#aboutMe");
 let resumeAbout = document.querySelector(".resumeAbout");
+const resumeAboutText = document.querySelector(".resumeAboutText");
+const resumeNumber = document.querySelector(".resumeNumber");
 
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
@@ -60,9 +64,17 @@ function nameAndSurname(firstString, SecondString) {
 // სახელის და გვარის ინფუთების ადგილის გამოტოვებები
 
 // input validations in personalInfo page
+
+nameInput.value = sessionStorage.getItem("nInput");
+if (georgianLangValidation(nameInput.value) && nameInput.value.length >= 2) {
+  nameInput.classList.add("is_valid");
+  nameInput.classList.remove("not_valid");
+}
 nameInput.addEventListener("keyup", function () {
+  sessionStorage.setItem("nInput", nameInput.value);
   nameAndSurname(nameInput.value, lastNameInput.value);
   resumeFullname.innerHTML = nameInput.value;
+
   if (georgianLangValidation(nameInput.value) && nameInput.value.length >= 2) {
     nameInput.classList.add("is_valid");
     nameInput.classList.remove("not_valid");
@@ -77,7 +89,18 @@ nameInput.addEventListener("keyup", function () {
     nameInput.classList.remove("not_valid");
   }
 });
+
+lastNameInput.value = sessionStorage.getItem("lInput");
+if (
+  georgianLangValidation(lastNameInput.value) &&
+  lastNameInput.value.length >= 2
+) {
+  lastNameInput.classList.add("is_valid");
+  lastNameInput.classList.remove("not_valid");
+}
+
 lastNameInput.addEventListener("keyup", function () {
+  sessionStorage.setItem("lInput", lastNameInput.value);
   nameAndSurname(nameInput.value, lastNameInput.value);
   if (
     georgianLangValidation(lastNameInput.value) &&
@@ -96,9 +119,58 @@ lastNameInput.addEventListener("keyup", function () {
     lastNameInput.classList.remove("not_valid");
   }
 });
+nameAndSurname(nameInput.value, lastNameInput.value);
+// personal page-ზე როა ფოტოს ატვირთვის ღილაკი ეს მაგის კოდია
+photoUpload.addEventListener("change", function () {
+  const file = this.files[0];
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    resumePic.src = e.target.result;
+    resumePic.style.display = "block";
+  };
+  reader.readAsDataURL(new Blob([file]));
+});
+
+uploadButton.addEventListener("click", function (e) {
+  e.preventDefault();
+  photoUpload.click();
+});
+// personal page-ზე როა ფოტოს ატვირთვის ღილაკი ეს მაგის კოდია
+
+// ტექსტარეაში ჩაწერილი ტექსტიიი
+
+aboutMe.value = sessionStorage.getItem("about");
+resumeAboutText.textContent = aboutMe.value;
+if (aboutMe.value.length > 0) {
+  resumeAbout.textContent = "ᲩᲔᲛ ᲨᲔᲡᲐᲮᲔᲑ";
+}
+
+aboutMe.addEventListener("keyup", function () {
+  sessionStorage.setItem("about", aboutMe.value);
+  resumeAboutText.textContent = aboutMe.value;
+
+  if (aboutMe.value.trim() === "") {
+    resumeAbout.textContent = "";
+  } else {
+    resumeAbout.textContent = "ᲩᲔᲛ ᲨᲔᲡᲐᲮᲔᲑ";
+  }
+});
+// ტექსტარეაში ჩაწერილი ტექსტიიი
+
+emailInput.value = sessionStorage.getItem("email");
+if (emailInput.value.length > 0) {
+  emailIcon.style.display = "block";
+}
+
+resumeEmail.textContent = sessionStorage.getItem("email");
+if (emailValidation(emailInput.valu)) {
+  emailInput.classList.add("is_valid");
+  emailInput.classList.remove("not_valid");
+}
 
 emailInput.addEventListener("keyup", function () {
-  resumeEmailBox.textContent = emailInput.value;
+  sessionStorage.setItem("email", emailInput.value);
+  resumeEmail.textContent = sessionStorage.getItem("email");
   emailIcon.style.display = "block";
   if (emailInput.value.trim() === "") {
     emailIcon.style.display = "none";
@@ -112,7 +184,21 @@ emailInput.addEventListener("keyup", function () {
     emailInput.classList.add("not_valid");
   }
 });
+
+mobileNumberInput.value = sessionStorage.getItem("phone");
+if (mobileNumberInput.value.length > 0) {
+  phoneIcon.style.display = "block";
+}
+
+resumeNumber.textContent = sessionStorage.getItem("phone");
+if (georgianNumberFormat(mobileNumberInput.value)) {
+  mobileNumberInput.classList.add("is_valid");
+  mobileNumberInput.classList.remove("not_valid");
+}
+
 mobileNumberInput.addEventListener("keyup", function () {
+  sessionStorage.setItem("phone", mobileNumberInput.value);
+  resumeNumber.textContent = sessionStorage.getItem("phone");
   resumeMobileBox.textContent = mobileNumberInput.value;
   phoneIcon.style.display = "block";
   if (georgianNumberFormat(mobileNumberInput.value)) {
@@ -131,44 +217,13 @@ mobileNumberInput.addEventListener("keyup", function () {
   }
 });
 
-// ტექსტარეაში ჩაწერილი ტექსტიიი
-
-aboutMe.addEventListener("keyup", function () {
-  if (aboutMe.value.length > 0) {
-    resumeAbout.textContent = "ᲩᲔᲛ ᲨᲔᲡᲐᲮᲔᲑ";
-  }
-  if (aboutMe.value.trim() === "") {
-    resumeAbout.textContent = "";
-  } else {
-    resumeAbout.textContent = "ᲩᲔᲛ ᲨᲔᲡᲐᲮᲔᲑ";
-  }
-});
-
-// ტექსტარეაში ჩაწერილი ტექსტიიი
-
 // input validations in personalInfo page
-
-// personal page-ზე როა ფოტოს ატვირთვის ღილაკი ეს მაგის კოდია
-photoUpload.addEventListener("change", function () {
-  const file = this.files[0];
-  const reader = new FileReader();
-  reader.onload = function (e) {
-    resumePic.src = e.target.result;
-    resumePic.style.display = "block";
-  };
-  reader.readAsDataURL(new Blob([file]));
-});
-
-uploadButton.addEventListener("click", function (e) {
-  e.preventDefault();
-  photoUpload.click();
-});
-// personal page-ზე როა ფოტოს ატვირთვის ღილაკი ეს მაგის კოდია
 
 // მეინფეიჯის resume button არის ეს
 resumeButton.addEventListener("click", function () {
   mainPage.style.display = "none";
   personalInfo.style.display = "flex";
+  threeSectionParent.style.display = "flex";
   personalPage.style.display = "block";
   personalPageform.style.display = "flex";
 });
