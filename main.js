@@ -51,12 +51,17 @@ const resumeExperienceDescription = document.querySelector(
   ".resumeExperienceDescription"
 );
 const description = document.querySelector("#description");
+const eduDescription = document.querySelector("#eduDescription");
 const resumeEducationTitle = document.querySelector(".resumeEducationTitle");
 const resumeEducationPlace = document.querySelector(".resumeEducationPlace");
 const degreesSelection = document.querySelector("#degrees");
 const resumePhoto = document.querySelector(".resumePhoto");
 const bottomLine = document.querySelector(".bottomLine");
 const eduEndDateInput = document.querySelector("#eduEndDate");
+const resumeEducationDescription = document.querySelector(
+  ".resumeEducationDescription"
+);
+const resumeEducationDate = document.querySelector(".resumeEducationDate");
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 function georgianLangValidation(input) {
@@ -449,7 +454,7 @@ degrees.addEventListener("change", function () {
 });
 
 eduEndDateInput.value = sessionStorage.getItem("eduEndDate");
-resumeExperienceDate.textContent = eduEndDateInput.value;
+resumeEducationDate.textContent = eduEndDateInput.value;
 
 if (dataCheker(eduEndDateInput)) {
   eduEndDateInput.classList.add("is_valid");
@@ -457,12 +462,31 @@ if (dataCheker(eduEndDateInput)) {
 }
 eduEndDateInput.addEventListener("change", function () {
   sessionStorage.setItem("eduEndDate", eduEndDateInput.value);
+
   if (dataCheker(eduEndDateInput)) {
     eduEndDateInput.classList.add("is_valid");
     eduEndDateInput.classList.remove("not_valid");
   } else {
     eduEndDateInput.classList.remove("is_valid");
     eduEndDateInput.classList.add("not_valid");
+  }
+});
+
+eduDescription.value = sessionStorage.getItem("educatDescript");
+if (dataCheker(eduDescription)) {
+  eduDescription.classList.add("is_valid");
+  eduDescription.classList.remove("not_valid");
+}
+resumeEducationDescription.textContent = eduDescription.value;
+eduDescription.addEventListener("keyup", function () {
+  sessionStorage.setItem("educatDescript", eduDescription.value);
+  resumeEducationDescription.textContent = eduDescription.value;
+  if (dataCheker(eduDescription)) {
+    eduDescription.classList.add("is_valid");
+    eduDescription.classList.remove("not_valid");
+  } else {
+    eduDescription.classList.remove("is_valid");
+    eduDescription.classList.add("not_valid");
   }
 });
 

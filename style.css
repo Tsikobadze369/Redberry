@@ -446,18 +446,21 @@
   font-family: "HelveticaNeue";
   margin-bottom: 2%;
 }
-#description {
+#description,
+#eduDescription {
   padding: 14px 16px;
   height: 104px;
   width: 100%;
 }
-#description::placeholder {
+#description,
+#eduDescription::placeholder {
   font-size: 13px;
   line-height: 21px;
   font-family: "HelveticaNeue";
   color: rgba(0, 0, 0, 0.6);
 }
-#description:focus {
+#description,
+#eduDescription:focus {
   outline: 0;
 }
 .border_bottom {
@@ -697,7 +700,8 @@
 .resumeAboutText,
 .resumeExpEmployer,
 .resumeExperienceDescription,
-.resumeEducationPlace {
+.resumeEducationPlace,
+.resumeEducationDescription {
   max-width: 430px;
   width: 100%;
   margin-top: 2%;
@@ -749,7 +753,8 @@
   line-height: 21.98px;
   margin-top: 10%;
 }
-.resumeExperienceDate {
+.resumeExperienceDate,
+.resumeEducationDate {
   color: #909090;
   margin-top: 0.5rem;
   font-size: 15px;
