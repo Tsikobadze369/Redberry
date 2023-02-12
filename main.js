@@ -54,6 +54,9 @@ const description = document.querySelector("#description");
 const resumeEducationTitle = document.querySelector(".resumeEducationTitle");
 const resumeEducationPlace = document.querySelector(".resumeEducationPlace");
 const degreesSelection = document.querySelector("#degrees");
+const resumePhoto = document.querySelector(".resumePhoto");
+const bottomLine = document.querySelector(".bottomLine");
+const eduEndDateInput = document.querySelector("#eduEndDate");
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 function georgianLangValidation(input) {
@@ -156,12 +159,18 @@ photoUpload.addEventListener("change", function () {
   const file = this.files[0];
   const reader = new FileReader();
   reader.onload = function (e) {
-    resumePic.src = e.target.result;
-    resumePic.style.display = "block";
+    resumePhoto.src = e.target.result;
+    resumePhoto.style.display = "block";
+    sessionStorage.setItem("resumePhoto", e.target.result);
   };
   reader.readAsDataURL(new Blob([file]));
 });
-
+window.onload = function () {
+  if (sessionStorage.getItem("resumePhoto")) {
+    resumePhoto.src = sessionStorage.getItem("resumePhoto");
+    resumePhoto.style.display = "block";
+  }
+};
 uploadButton.addEventListener("click", function (e) {
   e.preventDefault();
   photoUpload.click();
@@ -404,6 +413,39 @@ educationInput.addEventListener("keyup", function () {
   }
 });
 
+axios
+  .get("https://resume.redberryinternship.ge/api/degrees")
+  .then((response) => {
+    const listOfDegrees = response.data;
+    console.log(response.data);
+    listOfDegrees.map((element) => {
+      let degreeList = document.createElement("option");
+      degrees.appendChild(degreeList);
+      degreeList.value = element.id;
+      degreeList.innerHTML = element.title;
+    });
+  });
+
+degrees.value = sessionStorage.getItem("edDegree");
+
+function eduAndDegree(eduPlace, eduDegree) {
+  resumeEducationPlace.textContent = `${eduPlace}, ${eduDegree}`;
+}
+
+degrees.addEventListener("change", function () {
+  // resumeEducationDegree.textContent = degrees.value;
+  let selectedDegree = degrees.options[degrees.selectedIndex].textContent;
+  eduAndDegree(educationInput.value, selectedDegree);
+  sessionStorage.setItem("edDegree", degrees.value);
+  if (dataCheker(degrees)) {
+    degrees.classList.add("is_valid");
+    degrees.classList.remove("not_valid");
+  } else {
+    degrees.classList.remove("is_valid");
+    degrees.classList.add("not_valid");
+  }
+});
+
 // education sectiooonnn!!!
 
 // მეინფეიჯის resume button არის ეს
@@ -520,15 +562,3 @@ backToTheExpPageBtn.addEventListener("click", function (e) {
 // განათლების გვერდზე არის ეს,უკან გადასასვლელი ღილაკია,გამოცდილების გვერდზე გადადის უკან
 
 // Axios/Get information from API
-axios
-  .get("https://resume.redberryinternship.ge/api/degrees")
-  .then((response) => {
-    const listOfDegrees = response.data;
-    console.log(response.data);
-    listOfDegrees.map((element) => {
-      let degreeList = document.createElement("option");
-      degrees.appendChild(degreeList);
-      degreeList.value = element.id;
-      degreeList.innerHTML = element.title;
-    });
-  });
