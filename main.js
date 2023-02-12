@@ -372,6 +372,10 @@ description.addEventListener("keyup", function () {
 
 // education sectiooonnn!!!
 
+function eduAndDegree(eduPlace, eduDegree) {
+  resumeEducationPlace.textContent = `${eduPlace} ${eduDegree}`;
+}
+
 educationInput.value = sessionStorage.getItem("education");
 resumeEducationPlace.textContent = educationInput.value;
 if (twoSymbolValidation(educationInput)) {
@@ -380,6 +384,7 @@ if (twoSymbolValidation(educationInput)) {
   educationInput.classList.remove("not_valid");
 }
 educationInput.addEventListener("keyup", function () {
+  eduAndDegree(educationInput.value, degreesSelection.value);
   sessionStorage.setItem("education", educationInput.value);
   if (twoSymbolValidation(educationInput)) {
     resumeEducationTitle.textContent = "ᲒᲐᲜᲐᲗᲚᲔᲑᲐ";
@@ -515,15 +520,15 @@ backToTheExpPageBtn.addEventListener("click", function (e) {
 // განათლების გვერდზე არის ეს,უკან გადასასვლელი ღილაკია,გამოცდილების გვერდზე გადადის უკან
 
 // Axios/Get information from API
-// axios
-//   .get("https://resume.redberryinternship.ge/api/degrees")
-//   .then((response) => {
-//     const degreeData = response.data;
-//     console.log(response.data);
-//     degreeData.forEach((element) => {
-//       let degreeOption = document.createElement("option");
-//       degrees.appendChild(degreeOption);
-//       degreeOption.value = element.title;
-//       degreeOption.innerHTML = element.title;
-//     });
-//   });
+axios
+  .get("https://resume.redberryinternship.ge/api/degrees")
+  .then((response) => {
+    const listOfDegrees = response.data;
+    console.log(response.data);
+    listOfDegrees.map((element) => {
+      let degreeList = document.createElement("option");
+      degrees.appendChild(degreeList);
+      degreeList.value = element.id;
+      degreeList.innerHTML = element.title;
+    });
+  });
