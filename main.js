@@ -44,6 +44,9 @@ const resumeExperienceTitle = document.querySelector(".resumeExperienceTitle");
 const resumeExperiencePost = document.querySelector(".resumeExperiencePost");
 const employerInput = document.querySelector("#employer");
 const resumeExpEmployer = document.querySelector(".resumeExpEmployer");
+const startDate = document.querySelector("#startDate");
+const endDate = document.querySelector("#endDate");
+const resumeExperienceDate = document.querySelector(".resumeExperienceDate");
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 function georgianLangValidation(input) {
@@ -301,6 +304,46 @@ employerInput.addEventListener("keyup", function () {
   }
 });
 aboutWork(postInput.value, employerInput.value);
+
+function bothDate(start, end) {
+  resumeExperienceDate.textContent = `${start}-${end}`;
+}
+
+startDate.value = sessionStorage.getItem("startDate");
+endDate.value = sessionStorage.getItem("endDate");
+
+if (dataCheker(startDate)) {
+  startDate.classList.add("is_valid");
+  startDate.classList.remove("not_valid");
+}
+bothDate(startDate.value, endDate.value);
+startDate.addEventListener("change", function () {
+  bothDate(startDate.value, endDate.value);
+  sessionStorage.setItem("startDate", startDate.value);
+  if (dataCheker(startDate)) {
+    startDate.classList.add("is_valid");
+    startDate.classList.remove("not_valid");
+  } else {
+    startDate.classList.remove("is_valid");
+    startDate.classList.remove("not_valid");
+  }
+});
+if (dataCheker(startDate)) {
+  endDate.classList.add("is_valid");
+  endDate.classList.remove("not_valid");
+}
+endDate.addEventListener("change", function () {
+  bothDate(startDate.value, endDate.value);
+  sessionStorage.setItem("endDate", endDate.value);
+  if (dataCheker(endDate)) {
+    endDate.classList.add("is_valid");
+    endDate.classList.remove("not_valid");
+  } else {
+    endDate.classList.remove("is_valid");
+    endDate.classList.add("is_valid");
+  }
+});
+
 // experience page validation
 
 // input validations in personalInfo page

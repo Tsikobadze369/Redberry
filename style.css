@@ -413,7 +413,11 @@
   height: 43px;
   padding: 14px 16px;
   border-radius: 4px;
-  border: 1px solid #bcbcbc;
+}
+
+#startDate,
+#endDate:focus {
+  outline: 0;
 }
 
 .descriptionBox {
@@ -681,10 +685,11 @@
   line-height: 21.98px;
   margin-top: 10%;
 }
-.resumeAboutText {
+.resumeAboutText,
+.resumeExpEmployer {
   max-width: 430px;
   width: 100%;
-  margin-top: 3%;
+  margin-top: 2%;
   font-size: 16px;
   font-family: "HelveticaNeue";
   color: #000000;
@@ -731,4 +736,12 @@
   font-family: "HelveticaNeue";
   line-height: 21.98px;
   margin-top: 10%;
+}
+.resumeExperienceDate {
+  color: #909090;
+  margin-top: 0.5rem;
+  font-size: 15px;
+  font-style: italic;
+  line-height: 19.17px;
+  font-weight: 400;
 }
