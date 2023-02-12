@@ -19,26 +19,31 @@ const uploadButton = document.querySelector(".uploadButton");
 const backBtn = document.querySelector(".back_btn");
 const title = document.querySelector(".title");
 const personalPageform = document.querySelector(".personalPageform");
-let nameInput = document.querySelector("#name");
-let lastNameInput = document.querySelector("#last_name");
-let emailInput = document.querySelector("#email");
-let mobileNumberInput = document.querySelector("#mobileNumber");
-let resumeFullname = document.querySelector(".resumeFullname");
-let resumeEmailBox = document.querySelector(".resumeEmailBox");
-let resumeEmail = document.querySelector(".resumeEmail");
-let emailIcon = document.querySelector(".emailIcon");
-let phoneIcon = document.querySelector(".phoneIcon");
-let resumeMobileBox = document.querySelector(".resumeMobileBox");
-let degrees = document.querySelector("#degrees");
-let resumeEducationDegree = document.querySelector(".resumeEducationDegree");
-let resumeContainer = document.querySelector("#resumeContainer");
-let resumePersonal = document.querySelector(".resumePersonal");
-let resumeSection = document.querySelector(".resumeSection");
-let aboutMe = document.querySelector("#aboutMe");
-let resumeAbout = document.querySelector(".resumeAbout");
+const nameInput = document.querySelector("#name");
+const lastNameInput = document.querySelector("#last_name");
+const emailInput = document.querySelector("#email");
+const mobileNumberInput = document.querySelector("#mobileNumber");
+const resumeFullname = document.querySelector(".resumeFullname");
+const resumeEmailBox = document.querySelector(".resumeEmailBox");
+const resumeEmail = document.querySelector(".resumeEmail");
+const emailIcon = document.querySelector(".emailIcon");
+const phoneIcon = document.querySelector(".phoneIcon");
+const resumeMobileBox = document.querySelector(".resumeMobileBox");
+const degrees = document.querySelector("#degrees");
+const resumeEducationDegree = document.querySelector(".resumeEducationDegree");
+
+const resumePersonal = document.querySelector(".resumePersonal");
+const resumeSection = document.querySelector(".resumeSection");
+const aboutMe = document.querySelector("#aboutMe");
+const resumeAbout = document.querySelector(".resumeAbout");
 const resumeAboutText = document.querySelector(".resumeAboutText");
 const resumeNumber = document.querySelector(".resumeNumber");
-
+const postInput = document.querySelector("#post");
+const resumeExperienceBox = document.querySelector(".resumeExperienceBox");
+const resumeExperienceTitle = document.querySelector(".resumeExperienceTitle");
+const resumeExperiencePost = document.querySelector(".resumeExperiencePost");
+const employerInput = document.querySelector("#employer");
+const resumeExpEmployer = document.querySelector(".resumeExpEmployer");
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 function georgianLangValidation(input) {
@@ -54,12 +59,28 @@ function georgianNumberFormat(mobile) {
   let mobileRegex = /^(\+995)\d{9}$/;
   return mobileRegex.test(mobile);
 }
+
+function twoSymbolValidation(input) {
+  if (input.value.length >= 2) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+function dataCheker(input) {
+  if (input.value === "") {
+    return false;
+  } else {
+    return true;
+  }
+}
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 // სახელის და გვარის ინფუთების ადგილის გამოტოვებები
 
 function nameAndSurname(firstString, SecondString) {
-  resumeFullname.innerHTML = firstString + " " + SecondString;
+  resumeFullname.innerHTML = `${firstString} ${SecondString}`;
 }
 // სახელის და გვარის ინფუთების ადგილის გამოტოვებები
 
@@ -199,7 +220,7 @@ if (georgianNumberFormat(mobileNumberInput.value)) {
 mobileNumberInput.addEventListener("keyup", function () {
   sessionStorage.setItem("phone", mobileNumberInput.value);
   resumeNumber.textContent = sessionStorage.getItem("phone");
-  resumeMobileBox.textContent = mobileNumberInput.value;
+
   phoneIcon.style.display = "block";
   if (georgianNumberFormat(mobileNumberInput.value)) {
     mobileNumberInput.classList.add("is_valid");
@@ -216,6 +237,71 @@ mobileNumberInput.addEventListener("keyup", function () {
     mobileNumberInput.classList.remove("not_valid");
   }
 });
+
+// experience page validation
+
+function aboutWork(stringFirst, stringSecond) {
+  resumeExpEmployer.innerHTML = `${stringFirst}, ${stringSecond}`;
+}
+
+postInput.value = sessionStorage.getItem("post");
+// resumeExperiencePost.textContent = postInput.value;
+
+if (twoSymbolValidation(postInput)) {
+  resumeExperienceTitle.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
+  postInput.classList.add("is_valid");
+  postInput.classList.remove("not_valid");
+}
+postInput.addEventListener("keyup", function () {
+  sessionStorage.setItem("post", postInput.value);
+  // resumeExperiencePost.textContent = postInput.value;
+  aboutWork(postInput.value, employerInput.value);
+  if (twoSymbolValidation(postInput)) {
+    resumeExperienceTitle.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
+    postInput.classList.add("is_valid");
+    postInput.classList.remove("not_valid");
+  } else if (
+    !twoSymbolValidation(postInput) &&
+    postInput.value.length > 0 &&
+    postInput.value.length < 2
+  ) {
+    postInput.classList.remove("is_valid");
+    postInput.classList.add("not_valid");
+  } else {
+    resumeExperienceTitle.textContent = "";
+    postInput.classList.remove("is_valid");
+    postInput.classList.remove("not_valid");
+  }
+});
+
+employerInput.value = sessionStorage.getItem("employer");
+resumeExpEmployer.innerHTML = employerInput.value;
+if (twoSymbolValidation(employerInput)) {
+  employerInput.classList.add("is_valid");
+  employerInput.classList.remove("not_valid");
+}
+employerInput.addEventListener("keyup", function () {
+  aboutWork(postInput.value, employerInput.value);
+  sessionStorage.setItem("employer", employerInput.value);
+  // resumeExpEmployer.innerHTML = employerInput.value;
+  // resumeExpEmployer.textContent = employerInput.value;
+  if (twoSymbolValidation(employerInput)) {
+    employerInput.classList.add("is_valid");
+    employerInput.classList.remove("not_valid");
+  } else if (
+    !twoSymbolValidation(employerInput) &&
+    employerInput.value.length > 0 &&
+    employerInput.value.lengtn < 2
+  ) {
+    employerInput.classList.remove("is_valid");
+    employerInput.classList.add("not_valid");
+  } else {
+    emailInput.classList.remove("is_valid");
+    employerInput.classList.remove("not_valid");
+  }
+});
+aboutWork(postInput.value, employerInput.value);
+// experience page validation
 
 // input validations in personalInfo page
 
