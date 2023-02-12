@@ -686,7 +686,8 @@
   margin-top: 10%;
 }
 .resumeAboutText,
-.resumeExpEmployer {
+.resumeExpEmployer,
+.resumeExperienceDescription {
   max-width: 430px;
   width: 100%;
   margin-top: 2%;

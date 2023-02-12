@@ -31,7 +31,6 @@ const phoneIcon = document.querySelector(".phoneIcon");
 const resumeMobileBox = document.querySelector(".resumeMobileBox");
 const degrees = document.querySelector("#degrees");
 const resumeEducationDegree = document.querySelector(".resumeEducationDegree");
-
 const resumePersonal = document.querySelector(".resumePersonal");
 const resumeSection = document.querySelector(".resumeSection");
 const aboutMe = document.querySelector("#aboutMe");
@@ -47,6 +46,10 @@ const resumeExpEmployer = document.querySelector(".resumeExpEmployer");
 const startDate = document.querySelector("#startDate");
 const endDate = document.querySelector("#endDate");
 const resumeExperienceDate = document.querySelector(".resumeExperienceDate");
+const resumeExperienceDescription = document.querySelector(
+  ".resumeExperienceDescription"
+);
+const description = document.querySelector("#description");
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 function georgianLangValidation(input) {
@@ -335,15 +338,32 @@ if (dataCheker(startDate)) {
 endDate.addEventListener("change", function () {
   bothDate(startDate.value, endDate.value);
   sessionStorage.setItem("endDate", endDate.value);
-  if (dataCheker(endDate)) {
+  if (dataCheker(startDate)) {
     endDate.classList.add("is_valid");
     endDate.classList.remove("not_valid");
   } else {
     endDate.classList.remove("is_valid");
-    endDate.classList.add("is_valid");
+    endDate.classList.add("not_valid");
   }
 });
 
+description.value = sessionStorage.getItem("descript");
+resumeExperienceDescription.textContent = description.value;
+if (dataCheker(description)) {
+  description.classList.add("is_valid");
+  description.classList.remove(".not_valid");
+}
+description.addEventListener("keyup", function () {
+  sessionStorage.setItem("descript", description.value);
+  resumeExperienceDescription.textContent = description.value;
+  if (dataCheker(description)) {
+    description.classList.add("is_valid");
+    description.classList.remove("not_valid");
+  } else {
+    description.classList.remove("is_valid");
+    description.classList.add("not_valid");
+  }
+});
 // experience page validation
 
 // input validations in personalInfo page
@@ -415,10 +435,32 @@ backBtn.addEventListener("click", function (e) {
 // გამოცდილების გვერდზზეა ესეც, შემდეგ გვერდზე გადასასვლელი ღილაკია
 nextBtn.addEventListener("click", function (e) {
   e.preventDefault();
-  experienceSection.style.display = "none";
+  if (postInput.value.length === 0) {
+    postInput.classList.add("not_valid");
+  }
+  if (employerInput.value.length === 0) {
+    employerInput.classList.add("not_valid");
+  }
+  if (startDate.value.length === 0) {
+    startDate.classList.add("not_valid");
+  }
+  if (endDate.value.length === 0) {
+    endDate.value.classList.add("not_valid");
+  }
+  if (description.value.length === 0) {
+    description.classList.add("not_valid");
+  }
+  if (
+    twoSymbolValidation(postInput) &&
+    twoSymbolValidation(employerInput) &&
+    dataCheker(startDate) &&
+    dataCheker(endDate) &&
+    dataCheker(description)
+  )
+    experienceSection.style.display = "none";
   educationSection.style.display = "flex";
-  title.textContent = "ᲒᲐᲜᲐᲗᲚᲔᲑᲐ";
-  pages.textContent = "3/3";
+  // title.textContent = "ᲒᲐᲜᲐᲗᲚᲔᲑᲐ";
+  // pages.textContent = "3/3";
 });
 // გამოცდილების გვერდზზეა ესეც, შემდეგ გვერდზე გადასასვლელი ღილაკია
 
