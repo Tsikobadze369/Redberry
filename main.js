@@ -13,6 +13,7 @@ const threeSectionParent = document.querySelector(".threeSectionParent");
 const experienceSection = document.querySelector(".experienceSection");
 const educationSection = document.querySelector(".educationSection");
 const educationButton = document.querySelector(".education_button");
+const educationInput = document.querySelector("#education");
 const pages = document.querySelector(".pages");
 const photoUpload = document.querySelector("#photoUpload");
 const uploadButton = document.querySelector(".uploadButton");
@@ -50,6 +51,9 @@ const resumeExperienceDescription = document.querySelector(
   ".resumeExperienceDescription"
 );
 const description = document.querySelector("#description");
+const resumeEducationTitle = document.querySelector(".resumeEducationTitle");
+const resumeEducationPlace = document.querySelector(".resumeEducationPlace");
+const degreesSelection = document.querySelector("#degrees");
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 function georgianLangValidation(input) {
@@ -366,7 +370,36 @@ description.addEventListener("keyup", function () {
 });
 // experience page validation
 
-// input validations in personalInfo page
+// education sectiooonnn!!!
+
+educationInput.value = sessionStorage.getItem("education");
+resumeEducationPlace.textContent = educationInput.value;
+if (twoSymbolValidation(educationInput)) {
+  resumeEducationTitle.textContent = "ᲒᲐᲜᲐᲗᲚᲔᲑᲐ";
+  educationInput.classList.add("is_valid");
+  educationInput.classList.remove("not_valid");
+}
+educationInput.addEventListener("keyup", function () {
+  sessionStorage.setItem("education", educationInput.value);
+  if (twoSymbolValidation(educationInput)) {
+    resumeEducationTitle.textContent = "ᲒᲐᲜᲐᲗᲚᲔᲑᲐ";
+    resumeEducationPlace.textContent = educationInput.value;
+    educationInput.classList.add("is_valid");
+    educationInput.classList.remove("not_valid");
+  } else if (
+    !twoSymbolValidation(educationInput) &&
+    educationInput.value.length > 0 &&
+    educationInput.value.length < 2
+  ) {
+    educationInput.classList.remove("is_valid");
+    educationInput.classList.add("not_valid");
+  } else {
+    educationInput.classList.remove("is_valid");
+    educationInput.classList.remove("not_valid");
+  }
+});
+
+// education sectiooonnn!!!
 
 // მეინფეიჯის resume button არის ეს
 resumeButton.addEventListener("click", function () {
