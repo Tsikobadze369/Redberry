@@ -80,7 +80,9 @@
   left: 2rem;
   cursor: pointer;
 }
-
+.photoUpload {
+  display: none;
+}
 .persInfoBox {
   width: 70%;
   display: flex;
@@ -159,6 +161,7 @@
 }
 .upload {
   margin-top: 15%;
+  position: relative;
 }
 .upload_text {
   width: 100%;
@@ -180,6 +183,12 @@
   line-height: 16.7px;
   font-weight: 400;
   cursor: pointer;
+}
+.resumePhoto {
+  width: 100%;
+  border-radius: 50%;
+  height: 246px;
+  display: none;
 }
 .textareaBox {
   width: 100%;

@@ -161,13 +161,15 @@ photoUpload.addEventListener("change", function () {
   reader.onload = function (e) {
     resumePhoto.src = e.target.result;
     resumePhoto.style.display = "block";
-    sessionStorage.setItem("resumePhoto", e.target.result);
+    sessionStorage.setItem("resumePic", e.target.result);
   };
-  reader.readAsDataURL(new Blob([file]));
+  reader.readAsDataURL(file);
+
+  // new Blob([file]);
 });
 window.onload = function () {
-  if (sessionStorage.getItem("resumePhoto")) {
-    resumePhoto.src = sessionStorage.getItem("resumePhoto");
+  if (sessionStorage.getItem("resumePic")) {
+    resumePhoto.src = sessionStorage.getItem("resumePic");
     resumePhoto.style.display = "block";
   }
 };
@@ -443,6 +445,24 @@ degrees.addEventListener("change", function () {
   } else {
     degrees.classList.remove("is_valid");
     degrees.classList.add("not_valid");
+  }
+});
+
+eduEndDateInput.value = sessionStorage.getItem("eduEndDate");
+resumeExperienceDate.textContent = eduEndDateInput.value;
+
+if (dataCheker(eduEndDateInput)) {
+  eduEndDateInput.classList.add("is_valid");
+  eduEndDateInput.classList.remove("not_valid");
+}
+eduEndDateInput.addEventListener("change", function () {
+  sessionStorage.setItem("eduEndDate", eduEndDateInput.value);
+  if (dataCheker(eduEndDateInput)) {
+    eduEndDateInput.classList.add("is_valid");
+    eduEndDateInput.classList.remove("not_valid");
+  } else {
+    eduEndDateInput.classList.remove("is_valid");
+    eduEndDateInput.classList.add("not_valid");
   }
 });
 
