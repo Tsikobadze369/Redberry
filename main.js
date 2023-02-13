@@ -66,6 +66,12 @@ const resumeEducationDate = document.querySelector(".resumeEducationDate");
 // const resumePhotoBox = querySelector(".resumePhotoBox");
 const resumePhoto = document.querySelector(".resumePhoto");
 const resumeMainSection = document.querySelector(".resumeMainSection");
+const popUpWindow = document.querySelector(".popUpWindow");
+const popUpWindowButton = document.querySelector(".popUpWindowButton");
+popUpWindowButton.addEventListener("click", function () {
+  popUpWindow.style.display = "none";
+});
+const popUpText = document.querySelector(".popUpText");
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 function georgianLangValidation(input) {
@@ -285,6 +291,9 @@ if (twoSymbolValidation(postInput)) {
   resumeExperienceTitle.textContent = "ᲒᲐᲛᲝᲪᲓᲘᲚᲔᲑᲐ";
   postInput.classList.add("is_valid");
   postInput.classList.remove("not_valid");
+} else {
+  postInput.classList.remove("is_valid");
+  postInput.classList.add("not_valid");
 }
 postInput.addEventListener("keyup", function () {
   sessionStorage.setItem("post", postInput.value);
@@ -313,6 +322,9 @@ resumeExpEmployer.innerHTML = employerInput.value;
 if (twoSymbolValidation(employerInput)) {
   employerInput.classList.add("is_valid");
   employerInput.classList.remove("not_valid");
+} else {
+  employerInput.classList.remove("is_valid");
+  employerInput.classList.add("not_valid");
 }
 employerInput.addEventListener("keyup", function () {
   aboutWork(postInput.value, employerInput.value);
@@ -480,6 +492,7 @@ finishBtn.addEventListener("click", (e) => {
     dataCheker(eduDescription)
   ) {
     submition();
+    popUpWindow.style.display = "block";
     threeSection.style.display = "none";
     resumeMainSection.style.margin = "0 auto";
     resumeMainSection.style.display = "block";
@@ -510,7 +523,7 @@ function submitForm() {
     .post("https://resume.redberryinternship.ge/api/cvs", formData)
     .then((response) => {
       console.log(response.data);
-      popWindow.style.display = "block";
+      popUpWindow.style.display = "block";
     })
     .catch((error) => {
       console.error(error);
