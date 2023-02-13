@@ -10,6 +10,7 @@ const backButtonSecPage = document.querySelector(
 );
 const nextPageButton = document.querySelector(".nextPageButton");
 const threeSectionParent = document.querySelector(".threeSectionParent");
+const threeSection = document.querySelector(".threeSection");
 const experienceSection = document.querySelector(".experienceSection");
 const educationSection = document.querySelector(".educationSection");
 const educationButton = document.querySelector(".education_button");
@@ -391,6 +392,11 @@ description.addEventListener("keyup", function () {
     description.classList.add("not_valid");
   }
 });
+// const expAddBtn = document.querySelector(".expAddBtn");
+// expAddBtn.addEventListener("click",(e)=>{
+//  e.preventDefault();
+// });
+
 // experience page validation
 
 // education sectiooonnn!!!
@@ -474,7 +480,8 @@ finishBtn.addEventListener("click", (e) => {
     dataCheker(eduDescription)
   ) {
     submition();
-
+    threeSection.style.display = "none";
+    resumeMainSection.style.margin = "0 auto";
     resumeMainSection.style.display = "block";
     personalInfo.style.display = "none";
     experienceSection.style.display = "none";
