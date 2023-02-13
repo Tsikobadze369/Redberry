@@ -64,6 +64,7 @@ const resumeEducationDescription = document.querySelector(
 const resumeEducationDate = document.querySelector(".resumeEducationDate");
 // const resumePhotoBox = querySelector(".resumePhotoBox");
 const resumePhoto = document.querySelector(".resumePhoto");
+const resumeMainSection = document.querySelector(".resumeMainSection");
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 function georgianLangValidation(input) {
@@ -84,17 +85,20 @@ function twoSymbolValidation(input) {
   if (input.value.length >= 2) {
     return true;
   } else {
+    input.style.borderColor = "red";
     return false;
   }
 }
-
 function dataCheker(input) {
   if (input.value === "") {
+    input.style.borderColor = "red";
     return false;
   } else {
+    input.style.borderColor = "";
     return true;
   }
 }
+
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 // სახელის და გვარის ინფუთების ადგილის გამოტოვებები
@@ -423,6 +427,8 @@ educationInput.addEventListener("keyup", function () {
   }
 });
 
+// Axios/Get information from API
+
 axios
   .get("https://resume.redberryinternship.ge/api/degrees")
   .then((response) => {
@@ -455,6 +461,117 @@ degrees.addEventListener("change", function () {
     degrees.classList.add("not_valid");
   }
 });
+// Axios/Get information from API
+
+// axios/Post information
+const finishBtn = document.querySelector(".end_btn");
+finishBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  if (
+    twoSymbolValidation(educationInput) &&
+    dataCheker(degrees) &&
+    dataCheker(eduEndDateInput) &&
+    dataCheker(eduDescription)
+  ) {
+    submition();
+
+    resumeMainSection.style.display = "block";
+    personalInfo.style.display = "none";
+    experienceSection.style.display = "none";
+    educationSection.style.display = "none";
+    // resumePersonal.style.display = "flex";
+    // resumeSection.style.flexDirection = "column";
+    // resumeSection.style.justifyContent = "center";
+    sessionStorage.clear();
+  }
+});
+
+function submition() {}
+function insertNodeAfter(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode.nextSibling);
+}
+
+function insertNodeBefore(referenceNode, newNode) {
+  referenceNode.parentNode.insertBefore(newNode, referenceNode);
+}
+
+function submitForm() {
+  const formModel = retrieveFormModel();
+  const formData = formatFormData(formModel);
+
+  axios
+    .post("https://resume.redberryinternship.ge/api/cvs", formData)
+    .then((response) => {
+      console.log(response.data);
+      popWindow.style.display = "block";
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+}
+
+function retrieveFormModel() {
+  const workExperiences = Array.from(
+    document.querySelectorAll(".app__personal--page .position-wrap")
+  ).map((positionElement) => {
+    return {
+      position: positionElement.querySelector(".app__input--position").value,
+      employer: positionElement.querySelector(".app__input--employer").value,
+      startDate: positionElement.querySelector(".app__date--input1").value,
+      endDate: positionElement.querySelector(".app__date--input2").value,
+      description: positionElement.querySelector(".app__input--description")
+        .value,
+    };
+  });
+
+  const educationHistory = Array.from(
+    document.querySelectorAll(".app__personal--page .education-wrap")
+  ).map((educationElement) => {
+    const degreeSelect = educationElement.querySelector(
+      ".app__education--select"
+    );
+
+    return {
+      institute: educationElement.querySelector(".app__education--school")
+        .value,
+      degreeId: degreeSelect.value,
+      degree: degreeSelect.options[degreeSelect.selectedIndex].text,
+      endDate: educationElement.querySelector(".app__education--date").value,
+      description: educationElement.querySelector(
+        ".app__input--edu--description"
+      ).value,
+    };
+  });
+
+  return {
+    name: nameInput.value,
+    surname: lastNameInput.value,
+    email: emailInput.value,
+    phoneNumber: mobileInput.value,
+    workExperiences,
+    educationHistory,
+    image: picUploadInput.files[0],
+    aboutMe: personalAbout.value,
+  };
+}
+
+function formatFormData(data = {}, form = null, namespace = "") {
+  const formData = new FormData();
+
+  for (const propertyName in data) {
+    if (!data.hasOwnProperty(propertyName) || !data[propertyName]) continue;
+
+    let formKey = namespace ? `${namespace}[${propertyName}]` : propertyName;
+
+    if (data[propertyName] instanceof Date) {
+      formData.append(formKey, data[propertyName].toISOString());
+    } else if (data[propertyName] instanceof File) {
+      formKey = formKey.replace("[" + propertyName + "]", "." + propertyName);
+    }
+  }
+}
+
+// axios/Post information
 
 eduEndDateInput.value = sessionStorage.getItem("eduEndDate");
 resumeEducationDate.textContent = eduEndDateInput.value;
@@ -607,5 +724,3 @@ backToTheExpPageBtn.addEventListener("click", function (e) {
   pages.textContent = "2/3";
 });
 // განათლების გვერდზე არის ეს,უკან გადასასვლელი ღილაკია,გამოცდილების გვერდზე გადადის უკან
-
-// Axios/Get information from API
