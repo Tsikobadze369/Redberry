@@ -496,6 +496,7 @@ finishBtn.addEventListener("click", (e) => {
     threeSection.style.display = "none";
     resumeMainSection.style.margin = "0 auto";
     resumeMainSection.style.display = "block";
+
     personalInfo.style.display = "none";
     experienceSection.style.display = "none";
     educationSection.style.display = "none";
