@@ -55,13 +55,15 @@ const eduDescription = document.querySelector("#eduDescription");
 const resumeEducationTitle = document.querySelector(".resumeEducationTitle");
 const resumeEducationPlace = document.querySelector(".resumeEducationPlace");
 const degreesSelection = document.querySelector("#degrees");
-const resumePhoto = document.querySelector(".resumePhoto");
+
 const bottomLine = document.querySelector(".bottomLine");
 const eduEndDateInput = document.querySelector("#eduEndDate");
 const resumeEducationDescription = document.querySelector(
   ".resumeEducationDescription"
 );
 const resumeEducationDate = document.querySelector(".resumeEducationDate");
+// const resumePhotoBox = querySelector(".resumePhotoBox");
+const resumePhoto = document.querySelector(".resumePhoto");
 // შეზღუდვები ენაზე,მეილზე,ნომერზე
 
 function georgianLangValidation(input) {
@@ -160,6 +162,7 @@ lastNameInput.addEventListener("keyup", function () {
 });
 nameAndSurname(nameInput.value, lastNameInput.value);
 // personal page-ზე როა ფოტოს ატვირთვის ღილაკი ეს მაგის კოდია
+
 photoUpload.addEventListener("change", function () {
   const file = this.files[0];
   const reader = new FileReader();

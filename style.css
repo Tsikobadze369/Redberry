@@ -184,12 +184,7 @@
   font-weight: 400;
   cursor: pointer;
 }
-.resumePhoto {
-  width: 100%;
-  border-radius: 50%;
-  height: 246px;
-  display: none;
-}
+
 .textareaBox {
   width: 100%;
   display: flex;
@@ -675,10 +670,6 @@
   border: 3px solid #ef5050;
 }
 
-.resumePhotoBox,
-.resumeLogo {
-  display: none;
-}
 .email_icon,
 .phoneIcon {
   display: none;
@@ -710,18 +701,8 @@
   color: #000000;
   line-height: 22px;
 }
-.resumeFullname {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 34px;
-  line-height: 41.51px;
-  color: #f93b1d;
-  margin-bottom: 5%;
-  /* overflow: auto; */
-}
+
 .logo12 {
-  width: 42px;
-  height: 42px;
   position: absolute;
   top: 100%;
 }
@@ -765,4 +746,38 @@
 .bottomLine {
   border-bottom: 1px solid #c8c8c8;
   margin-top: 2rem;
+}
+.resumePhotoBox {
+  width: 50%;
+  max-width: 240px;
+  border-radius: 50%;
+}
+.resumePhoto {
+  width: 100%;
+  border-radius: 50%;
+  height: 240px;
+  display: none;
+}
+.resumeSection {
+  width: 100%;
+  position: relative;
+  padding-bottom: 230px;
+}
+.resumePersonal {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.resumePersonalInfo {
+  width: 70%;
+}
+.resumeFullname {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 41.51px;
+  color: #f93b1d;
+  margin-bottom: 5%;
+  overflow: auto;
 }
